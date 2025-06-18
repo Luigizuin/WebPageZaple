@@ -1,0 +1,156 @@
+/* --- Reseteo Básico y Variables de Diseño --- */
+:root {
+    --font-title: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Urbanist', sans-serif;
+    --color-text: #f0f0f0;
+    --color-purple-light: #4f3a9a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-image: url('images/background-main.png');
+    background-color: #0c0a1a; /* Color de respaldo si la imagen no carga */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efecto parallax suave */
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* --- Barra de Navegación (Header) --- */
+.navbar {
+    padding: 20px 40px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(10, 8, 20, 0.5); /* Fondo semitransparente */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.navbar-logo img {
+    height: 35px; /* Altura del logo en la barra */
+    width: auto;
+    display: block;
+}
+
+/* --- Contenido Principal --- */
+main {
+    padding-top: 75px; /* Espacio para que el contenido no quede debajo del navbar fijo */
+}
+
+/* --- Sección de Inicio (Hero) --- */
+.hero-section {
+    min-height: calc(90vh - 75px); /* Ocupa casi toda la pantalla inicial */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero-content {
+    max-width: 700px; /* Ancho máximo del contenido de texto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-logo {
+    max-width: 280px;
+    margin-bottom: 2rem;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* --- Sección de Speakers --- */
+.speakers-section {
+    padding: 60px 40px;
+    text-align: center;
+    background-color: rgba(12, 10, 26, 0.7); /* Un fondo ligeramente diferente para separar la sección */
+}
+
+.section-title {
+    font-family: var(--font-title);
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    letter-spacing: -1px;
+}
+
+.speakers-grid {
+    display: grid;
+    /* Crea columnas automáticas que miden como mínimo 250px */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto; /* Centra la grilla */
+}
+
+.speaker-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 30px 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.speaker-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.speaker-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Hace la foto circular */
+    object-fit: cover; /* Asegura que la imagen no se deforme */
+    margin-bottom: 1.5rem;
+    border: 3px solid var(--color-purple-light);
+}
+
+.speaker-name {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.speaker-title {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+}
+
+/* --- Diseño Responsivo para Móviles --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .hero-section {
+        min-height: auto; /* Altura automática en móviles */
+        padding: 60px 20px;
+    }
+
+    .hero-logo {
+        max-width: 200px;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .speakers-section {
+        padding: 50px 20px;
+    }
+}
