@@ -3,7 +3,9 @@
     --font-title: 'Plus Jakarta Sans', sans-serif;
     --font-body: 'Urbanist', sans-serif;
     --color-text: #f0f0f0;
-    --color-purple-light: #4f3a9a;
+    --color-purple: #4f3a9a;
+    --color-dark-bg: #0c0a1a;
+    --color-section-bg: rgba(12, 10, 26, 0.7);
 }
 
 * {
@@ -12,60 +14,120 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-body);
     background-image: url('images/background-main.png');
-    background-color: #0c0a1a; /* Color de respaldo si la imagen no carga */
+    background-color: var(--color-dark-bg);
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Efecto parallax suave */
+    background-attachment: fixed;
     color: var(--color-text);
     line-height: 1.6;
 }
 
+section {
+    padding: 80px 40px;
+}
+
 /* --- Barra de Navegación (Header) --- */
 .navbar {
-    padding: 20px 40px;
+    padding: 15px 40px;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    background: rgba(10, 8, 20, 0.5); /* Fondo semitransparente */
-    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    background: rgba(10, 8, 20, 0.5);
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navbar-logo img {
-    height: 35px; /* Altura del logo en la barra */
+    height: 35px;
     width: auto;
     display: block;
 }
 
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-purple);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+.hamburger-menu {
+    display: none; /* Oculto en desktop */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger-menu span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-text);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
 /* --- Contenido Principal --- */
 main {
-    padding-top: 75px; /* Espacio para que el contenido no quede debajo del navbar fijo */
+    padding-top: 65px; 
 }
 
 /* --- Sección de Inicio (Hero) --- */
 .hero-section {
-    min-height: calc(90vh - 75px); /* Ocupa casi toda la pantalla inicial */
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 40px 20px;
 }
 
 .hero-content {
-    max-width: 700px; /* Ancho máximo del contenido de texto */
+    max-width: 700px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .hero-logo {
-    max-width: 280px;
+    max-width: 180px; /* Reducido para el logo sin texto */
     margin-bottom: 2rem;
 }
 
@@ -74,28 +136,28 @@ main {
     font-weight: 500;
 }
 
-/* --- Sección de Speakers --- */
-.speakers-section {
-    padding: 60px 40px;
-    text-align: center;
-    background-color: rgba(12, 10, 26, 0.7); /* Un fondo ligeramente diferente para separar la sección */
-}
-
+/* --- Estilos Comunes de Sección --- */
 .section-title {
     font-family: var(--font-title);
     font-size: 2.8rem;
     font-weight: 800;
     margin-bottom: 3rem;
     letter-spacing: -1px;
+    text-align: center;
+}
+
+/* --- Sección de Speakers --- */
+.speakers-section {
+    background-color: var(--color-section-bg);
 }
 
 .speakers-grid {
-    display: grid;
-    /* Crea columnas automáticas que miden como mínimo 250px */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex; /* CAMBIO CLAVE: de grid a flex */
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea */
+    justify-content: center; /* Centra los elementos horizontalmente */
     gap: 30px;
-    max-width: 1100px;
-    margin: 0 auto; /* Centra la grilla */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .speaker-card {
@@ -104,6 +166,8 @@ main {
     border-radius: 12px;
     padding: 30px 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 260px; /* Ancho fijo para un mejor control del centrado */
+    text-align: center;
 }
 
 .speaker-card:hover {
@@ -114,43 +178,186 @@ main {
 .speaker-photo {
     width: 150px;
     height: 150px;
-    border-radius: 50%; /* Hace la foto circular */
-    object-fit: cover; /* Asegura que la imagen no se deforme */
+    border-radius: 50%;
+    object-fit: cover;
     margin-bottom: 1.5rem;
-    border: 3px solid var(--color-purple-light);
+    border: 3px solid var(--color-purple);
 }
 
 .speaker-name {
     font-family: var(--font-title);
     font-size: 1.5rem;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
 }
 
 .speaker-title {
     font-size: 0.9rem;
     color: #b0b0b0;
+    min-height: 50px; /* Para que todas las tarjetas tengan la misma altura */
 }
 
+/* --- Nueva Sección Nosotros --- */
+.nosotros-section {
+    background-color: var(--color-dark-bg);
+}
+
+.nosotros-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.nosotros-text {
+    flex: 2; /* Ocupa 2/3 del espacio */
+}
+.nosotros-text .section-title {
+    text-align: left;
+}
+.nosotros-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.nosotros-image {
+    flex: 1; /* Ocupa 1/3 del espacio */
+}
+
+.nosotros-image img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* --- Nueva Sección Aprendé y Formularios --- */
+.aprende-section, .footer-section {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.aprende-section {
+    background-color: var(--color-section-bg);
+}
+
+.form-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.form-container input {
+    width: 300px;
+    padding: 12px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+.form-container input::placeholder {
+    color: #a0a0a0;
+}
+
+.form-container button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-purple);
+    color: var(--color-text);
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #6a5acd; /* Un púrpura más brillante */
+}
+
+/* --- Footer --- */
+.footer-section {
+    background-color: var(--color-dark-bg);
+}
+
+.footer-section p {
+    margin-bottom: 1.5rem;
+}
+.footer-section a {
+    color: var(--color-purple);
+    font-weight: 700;
+    text-decoration: none;
+}
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+
 /* --- Diseño Responsivo para Móviles --- */
-@media (max-width: 768px) {
-    .navbar {
-        padding: 15px 20px;
+@media (max-width: 850px) {
+    .nav-menu {
+        display: none; /* Oculta el menú normal */
+        position: absolute;
+        top: 65px; /* Altura de la navbar */
+        left: 0;
+        width: 100%;
+        background-color: rgba(10, 8, 20, 0.95);
+        flex-direction: column;
+        text-align: center;
     }
 
-    .hero-section {
-        min-height: auto; /* Altura automática en móviles */
-        padding: 60px 20px;
+    .nav-menu.active {
+        display: flex; /* Muestra el menú cuando está activo */
     }
 
-    .hero-logo {
-        max-width: 200px;
+    .nav-menu ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+    }
+    .nav-menu li a {
+        display: block;
+        padding: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .nav-menu a::after {
+        display: none; /* Quita la línea de abajo en móvil */
+    }
+    
+    .hamburger-menu {
+        display: flex; /* Muestra el botón hamburguesa */
     }
 
-    .section-title {
-        font-size: 2.2rem;
+    .hamburger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+    }
+    .hamburger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
     }
 
-    .speakers-section {
-        padding: 50px 20px;
+    section { padding: 60px 20px; }
+    .section-title { font-size: 2.2rem; }
+    
+    .nosotros-content {
+        flex-direction: column;
+    }
+    .nosotros-text .section-title {
+        text-align: center;
+    }
+    
+    .form-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .form-container input {
+        width: 100%;
+        max-width: 350px;
     }
 }

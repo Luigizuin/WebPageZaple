@@ -8,30 +8,44 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Urbanist:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Urbanist:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Hoja de estilos CSS -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Favicon (Opcional, pero recomendado) -->
-    <link rel="icon" href="images/logo-zaple.png" type="image/png">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WQGT61DBQ8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo-reducido.png" type="image/png">
 
-  gtag('config', 'G-WQGT61DBQ8');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WQGT61DBQ8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WQGT61DBQ8');
+    </script>
 </head>
 <body>
 
     <!-- Barra de Navegación / Header -->
     <header class="navbar">
-        <a href="index.html" class="navbar-logo">
+        <a href="#inicio" class="navbar-logo">
             <img src="images/logo-zaple.png" alt="Logo de Zaple">
         </a>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#speakers">Voces</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#aprende">Aprendé con Zaple</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger-menu" id="hamburger-button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
 
     <!-- Contenido Principal -->
@@ -39,7 +53,7 @@
         <!-- Sección de Inicio -->
         <section id="inicio" class="hero-section">
             <div class="hero-content">
-                <img src="images/logo-zaple.png" alt="Logo de Zaple centrado" class="hero-logo">
+                <img src="images/logo-reducido.png" alt="Logo de Zaple centrado" class="hero-logo">
                 <p class="hero-description">
                     💡📈 Adaptamos grandes ideas para que se viralicen en redes.
                     <br><br>
@@ -53,51 +67,108 @@
             <h2 class="section-title">Voces que potenciamos</h2>
             <div class="speakers-grid">
                 
-                <!-- Speaker 1: Meli Masnatta -->
                 <div class="speaker-card">
                     <img src="images/meli-masnatta.jpg" alt="Foto de Meli Masnatta" class="speaker-photo">
                     <h3 class="speaker-name">Meli Masnatta</h3>
-                    <p class="speaker-title">Speaker y Referente</p>
+                    <p class="speaker-title">Referente en educación, IA e inclusión</p>
                 </div>
 
-                <!-- Speaker 2: Santi Bilinkis -->
                 <div class="speaker-card">
                     <img src="images/santi-bilinkis.jpg" alt="Foto de Santi Bilinkis" class="speaker-photo">
                     <h3 class="speaker-name">Santi Bilinkis</h3>
-                    <p class="speaker-title">Speaker y Referente</p>
+                    <p class="speaker-title">Tecnólogo y emprendedor</p>
                 </div>
 
-                <!-- Speaker 3: Claudio Zuchoviki -->
                 <div class="speaker-card">
                     <img src="images/claudio-zuchoviki.jpg" alt="Foto de Claudio Zuchoviki" class="speaker-photo">
                     <h3 class="speaker-name">Claudio Zuchoviki</h3>
-                    <p class="speaker-title">Speaker y Referente</p>
+                    <p class="speaker-title">Referente y analista financiero</p>
                 </div>
 
-                <!-- Speaker 4: Fede Ast -->
                 <div class="speaker-card">
                     <img src="images/fede-ast.jpg" alt="Foto de Fede Ast" class="speaker-photo">
                     <h3 class="speaker-name">Fede Ast</h3>
-                    <p class="speaker-title">Speaker y Referente</p>
+                    <p class="speaker-title">Innovador en blockchain y emprendedor</p>
                 </div>
 
-                <!-- Speaker 5: Tomi Balmaceda -->
                 <div class="speaker-card">
                     <img src="images/tomi-balmaceda.jpg" alt="Foto de Tomi Balmaceda" class="speaker-photo">
                     <h3 class="speaker-name">Tomi Balmaceda</h3>
-                    <p class="speaker-title">Speaker y Referente</p>
+                    <p class="speaker-title">Filósofo, periodista y creador digital</p>
                 </div>
 
-                <!-- Speaker 6: Ale Melamed -->
                 <div class="speaker-card">
                     <img src="images/ale-melamed.jpg" alt="Foto de Ale Melamed" class="speaker-photo">
                     <h3 class="speaker-name">Ale Melamed</h3>
-                    <p class="speaker-title">Speaker y Referente</p>
+                    <p class="speaker-title">Consultor y líder en futuro del trabajo</p>
+                </div>
+                
+                <div class="speaker-card">
+                    <img src="images/pato-jebsen.jpg" alt="Foto de Pato Jebsen" class="speaker-photo">
+                    <h3 class="speaker-name">Pato Jebsen</h3>
+                    <p class="speaker-title">Referente en E-commerce y ámbito laboral</p>
                 </div>
 
             </div>
         </section>
+
+        <!-- Nueva Sección Nosotros -->
+        <section id="nosotros" class="nosotros-section">
+             <div class="nosotros-content">
+                <div class="nosotros-text">
+                    <h2 class="section-title">Nosotros</h2>
+                    <p>Hace más de dos años que estamos surfeando las redes. Somos un equipo cordobés de editores y analistas de video especializados en videos verticales. Nos definen:
+                        <br>😁 La buena onda
+                        <br>🌟 La busqueda de la excelencia,
+                        <br>✨ La prolijidad en todo lo que hacemos
+                        <br>🔍 El análisis a detalle
+                        <br>🧠 La creatividad para destacar entre tanto ruido
+                    </p>
+                </div>
+                <div class="nosotros-image">
+                    <img src="images/equipo-zaple.jpg" alt="El equipo de Zaple">
+                </div>
+             </div>
+        </section>
+
+        <!-- Nueva Sección Aprendé -->
+        <section id="aprende" class="aprende-section">
+            <h2 class="section-title">¡Nuestro curso en análisis de videos!</h2>
+            <p>Estamos armando un material para que puedas aprender a analizar como hacemos nosotros. ¡Si querés ser de los primeros en recibir el material anotate abajo!</p>
+            <form action="https://formspree.io/f/xyzjngaq" method="POST" class="form-container">
+                <input type="email" name="email" placeholder="Dejanos tu mail" required>
+                <button type="submit">¡Anotarme!</button>
+            </form>
+        </section>
     </main>
 
+    <!-- Footer / Contacto -->
+    <footer id="contacto" class="footer-section">
+        <h2 class="section-title">Contacto</h2>
+        <p>¿Sos speaker, consultor o referente y querés potenciar tu voz en redes? ¡Contactanos y trabajemos juntos! <br>Escribinos a nuestro mail <a href="mailto:info@zaple-tech.com">info@zaple-tech.com</a> o dejanos el tuyo:</p>
+        <form action="https://formspree.io/f/xvgrwpja" method="POST" class="form-container">
+            <input type="email" name="email_contacto" placeholder="Tu correo electrónico" required>
+            <button type="submit">Enviar</button>
+        </form>
+    </footer>
+
+    <!-- Script para el menú hamburguesa en móviles -->
+    <script>
+        const hamburgerButton = document.getElementById('hamburger-button');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburgerButton.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburgerButton.classList.toggle('active');
+        });
+
+        // Cierra el menú si se hace clic en un enlace
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburgerButton.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
