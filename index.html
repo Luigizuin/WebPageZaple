@@ -55,6 +55,10 @@
                 <video id="hero-main-video" autoplay loop muted playsinline class="hero-video">
                     <source src="videos/video-inicio-b.mp4" type="video/mp4">
                 </video>
+                <!-- CAMBIO: Contenedor para el ícono de sonido -->
+                <div class="unmute-overlay">
+                    <img src="images/unmute-icon.svg" alt="Activar sonido">
+                </div>
             </div>
         </section>
 
@@ -161,7 +165,7 @@
         // --- Video del Hero con sonido al hacer click ---
         const heroVideo = document.getElementById('hero-main-video');
         if (heroVideo) {
-            heroVideo.addEventListener('click', () => {
+            heroVideo.parentElement.addEventListener('click', () => {
                 heroVideo.muted = !heroVideo.muted;
             });
         }
@@ -208,11 +212,21 @@
                 const videoContainer = document.createElement('div');
                 videoContainer.classList.add('carousel-video');
                 videoContainer.style.transform = `rotateY(${360 / totalVideos * (i - 1)}deg) translateZ(320px)`;
-                videoContainer.innerHTML = `<video src="videos/video-${i}.mp4" playsinline loop></video>`;
+                videoContainer.innerHTML = `
+                    <video src="videos/video-${i}.mp4" playsinline loop></video>
+                    <div class="video-overlay">
+                        <img src="images/play-icon.svg" class="play-icon" alt="Play">
+                        <img src="images/pause-icon.svg" class="pause-icon" alt="Pause">
+                    </div>`;
                 carousel.appendChild(videoContainer);
             }
             const allCarouselVideos = document.querySelectorAll('.carousel-video video');
             
+            allCarouselVideos.forEach(video => {
+                video.addEventListener('play', () => video.parentElement.classList.add('is-playing'));
+                video.addEventListener('pause', () => video.parentElement.classList.remove('is-playing'));
+            });
+
             function updateCarousel() {
                 const rotation = -currentIndex * (360 / totalVideos);
                 carousel.style.transform = `rotateY(${rotation}deg)`;
@@ -226,14 +240,11 @@
                         video.parentElement.classList.remove('active');
                         video.pause();
                     }
-                    video.onclick = (e) => {
+                    video.parentElement.querySelector('.video-overlay').onclick = (e) => {
                         if (index === activeIndex) {
                             e.stopPropagation();
-                            if (video.paused) {
-                                video.play();
-                            } else {
-                                video.pause();
-                            }
+                            if (video.paused) { video.play(); } 
+                            else { video.pause(); }
                         }
                     };
                 });
