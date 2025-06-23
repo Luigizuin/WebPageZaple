@@ -37,10 +37,14 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#speakers">Voces</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#aprende">Aprendé con Zaple</a></li>
+                <li><a href="#aprende">Aprendé</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/zapletech/" target="_blank" rel="noopener noreferrer"><img src="images/instagram-logo.svg" alt="Instagram"></a>
+            <a href="https://www.linkedin.com/company/zapletech/" target="_blank" rel="noopener noreferrer"><img src="images/linkedin-logo.svg" alt="LinkedIn"></a>
+        </div>
         <button class="hamburger-menu" id="hamburger-button">
             <span></span>
             <span></span>
@@ -52,78 +56,56 @@
     <main>
         <!-- Sección de Inicio -->
         <section id="inicio" class="hero-section">
+            <video autoplay loop muted class="hero-video video-left">
+                <source src="videos/video-inicio-a.mp4" type="video/mp4">
+            </video>
             <div class="hero-content">
+                <h1 class="hero-title">Contenido en formato corto para grandes ideas</h1>
                 <img src="images/logo-reducido.png" alt="Logo de Zaple centrado" class="hero-logo">
-                <p class="hero-description">
-                    💡📈 Adaptamos grandes ideas para que se viralicen en redes.
-                    <br><br>
-                    En Zaple somos expertos en convertir mensajes de videos de formato largo, a formato corto. 📽️✂️ Sabemos lo difícil que es surfear los algoritmos, por eso armamos un equipo de editores y especialistas creativos que, mediante análisis cualitativo y cuantitativo, entienden cómo transmitir tu mensaje para que lo escuche todo el mundo. 📣🔥
-                </p>
+                <p class="hero-description">En Zaple somos expertos en convertir mensajes de videos de formato largo, a formato corto. Sabemos lo difícil que es surfear los algoritmos, por eso armamos un equipo de editores y analistas de video que, mediante análisis cualitativo y cuantitativo, entienden cómo transmitir tu mensaje para que lo escuche todo el mundo.</p>
             </div>
+            <video autoplay loop muted class="hero-video video-right">
+                <source src="videos/video-inicio-b.mp4" type="video/mp4">
+            </video>
         </section>
 
         <!-- Sección de Speakers -->
         <section id="speakers" class="speakers-section">
-            <h2 class="section-title">Voces que potenciamos</h2>
-            <div class="speakers-grid">
-                
-                <div class="speaker-card">
-                    <img src="images/meli-masnatta.jpg" alt="Foto de Meli Masnatta" class="speaker-photo">
-                    <h3 class="speaker-name">Meli Masnatta</h3>
-                    <p class="speaker-title">Referente en educación, IA e inclusión</p>
+            <div class="view-container">
+                <!-- Vista de la Grilla (Visible por defecto) -->
+                <div id="speakers-grid-view">
+                    <h2 class="section-title">Voces que potenciamos</h2>
+                    <div class="speakers-grid">
+                        <div class="speaker-card" data-name="Meli Masnatta" data-img="images/meli-masnatta.jpg" data-title="Referente en educación, IA e inclusión" data-desc="Cofundadora de 'Chicas en Tecnología', Meli es una emprendedora social premiada que trabaja para cerrar la brecha de género en el ecosistema tecnológico, promoviendo la inclusión y la formación de futuras líderes."></div>
+                        <div class="speaker-card" data-name="Santi Bilinkis" data-img="images/santi-bilinkis.jpg" data-title="Tecnólogo y emprendedor" data-desc="Autor y conferencista, Santi es una de las voces más influyentes sobre el impacto de la tecnología en la sociedad. Explora cómo la innovación transforma nuestras vidas, el trabajo y el futuro de la humanidad."></div>
+                        <div class="speaker-card" data-name="Claudio Zuchoviki" data-img="images/claudio-zuchoviki.jpg" data-title="Referente y analista financiero" data-desc="Gerente de Desarrollo de la Bolsa de Comercio de Buenos Aires, Claudio es un destacado analista financiero que traduce la complejidad de los mercados a un lenguaje accesible para todos."></div>
+                        <div class="speaker-card" data-name="Fede Ast" data-img="images/fede-ast.jpg" data-title="Innovador en blockchain y emprendedor" data-desc="Fundador de Kleros, Fede es un pionero en el campo de la justicia descentralizada. Su trabajo se centra en cómo la tecnología blockchain puede crear sistemas de arbitraje más justos, transparentes y accesibles."></div>
+                        <div class="speaker-card" data-name="Tomi Balmaceda" data-img="images/tomi-balmaceda.jpg" data-title="Filósofo, periodista y creador digital" data-desc="Doctor en Filosofía y periodista, Tomi es un referente en la cultura pop y digital. Analiza con agudeza las tendencias, la tecnología y cómo estas moldean nuestra identidad y comunicación."></div>
+                        <div class="speaker-card" data-name="Ale Melamed" data-img="images/ale-melamed.jpg" data-title="Consultor y líder en futuro del trabajo" data-desc="Autor de best-sellers y conferencista internacional, Ale es un experto en el futuro del trabajo y el desarrollo del talento. Ayuda a organizaciones y personas a navegar la era de la transformación digital."></div>
+                        <div class="speaker-card" data-name="Pato Jebsen" data-img="images/pato-jebsen.jpg" data-title="Referente en E-commerce y ámbito laboral" data-desc="Especialista en E-commerce y transformación digital, Pato ayuda a empresas a potenciar sus ventas online. Es también un agudo observador del mundo laboral y las nuevas dinámicas de trabajo."></div>
+                    </div>
                 </div>
-
-                <div class="speaker-card">
-                    <img src="images/santi-bilinkis.jpg" alt="Foto de Santi Bilinkis" class="speaker-photo">
-                    <h3 class="speaker-name">Santi Bilinkis</h3>
-                    <p class="speaker-title">Tecnólogo y emprendedor</p>
+                <!-- Vista de Detalle (Oculta por defecto) -->
+                <div id="speaker-detail-view" class="hidden">
+                    <button id="back-to-grid-btn">← Volver</button>
+                    <div id="speaker-detail-content"></div>
                 </div>
-
-                <div class="speaker-card">
-                    <img src="images/claudio-zuchoviki.jpg" alt="Foto de Claudio Zuchoviki" class="speaker-photo">
-                    <h3 class="speaker-name">Claudio Zuchoviki</h3>
-                    <p class="speaker-title">Referente y analista financiero</p>
-                </div>
-
-                <div class="speaker-card">
-                    <img src="images/fede-ast.jpg" alt="Foto de Fede Ast" class="speaker-photo">
-                    <h3 class="speaker-name">Fede Ast</h3>
-                    <p class="speaker-title">Innovador en blockchain y emprendedor</p>
-                </div>
-
-                <div class="speaker-card">
-                    <img src="images/tomi-balmaceda.jpg" alt="Foto de Tomi Balmaceda" class="speaker-photo">
-                    <h3 class="speaker-name">Tomi Balmaceda</h3>
-                    <p class="speaker-title">Filósofo, periodista y creador digital</p>
-                </div>
-
-                <div class="speaker-card">
-                    <img src="images/ale-melamed.jpg" alt="Foto de Ale Melamed" class="speaker-photo">
-                    <h3 class="speaker-name">Ale Melamed</h3>
-                    <p class="speaker-title">Consultor y líder en futuro del trabajo</p>
-                </div>
-                
-                <div class="speaker-card">
-                    <img src="images/pato-jebsen.jpg" alt="Foto de Pato Jebsen" class="speaker-photo">
-                    <h3 class="speaker-name">Pato Jebsen</h3>
-                    <p class="speaker-title">Referente en E-commerce y ámbito laboral</p>
-                </div>
-
             </div>
         </section>
 
         <!-- Nueva Sección Nosotros -->
         <section id="nosotros" class="nosotros-section">
-             <div class="nosotros-content">
+             <div class="nosotros-content animate-on-scroll">
                 <div class="nosotros-text">
                     <h2 class="section-title">Nosotros</h2>
-                    <p>Hace más de dos años que estamos surfeando las redes. Somos un equipo cordobés de editores y analistas de video especializados en videos verticales. Nos definen:
-                        <br>😁 La buena onda
-                        <br>🌟 La busqueda de la excelencia,
-                        <br>✨ La prolijidad en todo lo que hacemos
-                        <br>🔍 El análisis a detalle
-                        <br>🧠 La creatividad para destacar entre tanto ruido
-                    </p>
+                    <p>Hace más de dos años que estamos surfeando las redes. Somos un equipo cordobés de editores y analistas de video especializados en videos verticales. Nos definen:</p>
+                    <ul class="nosotros-list">
+                        <li>🌟 La busqueda de la excelencia</li>
+                        <li>✨ La prolijidad en todo lo que hacemos</li>
+                        <li>🔍 El análisis a detalle</li>
+                        <li>🧠 La creatividad para destacar entre tanto ruido</li>
+                        <li>😁 La buena onda</li>
+                    </ul>
                 </div>
                 <div class="nosotros-image">
                     <img src="images/equipo-zaple.jpg" alt="El equipo de Zaple">
@@ -132,7 +114,7 @@
         </section>
 
         <!-- Nueva Sección Aprendé -->
-        <section id="aprende" class="aprende-section">
+        <section id="aprende" class="form-section">
             <h2 class="section-title">¡Nuestro curso en análisis de videos!</h2>
             <p>Estamos armando un material para que puedas aprender a analizar como hacemos nosotros. ¡Si querés ser de los primeros en recibir el material anotate abajo!</p>
             <form action="https://formspree.io/f/xyzjngaq" method="POST" class="form-container">
@@ -140,35 +122,90 @@
                 <button type="submit">¡Anotarme!</button>
             </form>
         </section>
+
+        <!-- Footer / Contacto -->
+        <footer id="contacto" class="form-section">
+            <h2 class="section-title">Contacto</h2>
+            <p>¿Sos speaker, consultor o referente y querés potenciar tu voz en redes? ¡Contactanos y trabajemos juntos! <br>Escribinos a nuestro mail <a href="mailto:info@zaple-tech.com">info@zaple-tech.com</a> o dejanos el tuyo:</p>
+            <form action="https://formspree.io/f/xvgrwpja" method="POST" class="form-container">
+                <input type="email" name="email_contacto" placeholder="Tu correo electrónico" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </footer>
+
+        <!-- Nueva Sección Final -->
+        <section id="final-rocket" class="rocket-section">
+            <img src="images/rocket.gif" alt="Cohete volando" class="rocket-gif">
+            <p class="rocket-text">¡Llevemos tu mensaje a otro nivel!</p>
+        </section>
     </main>
 
-    <!-- Footer / Contacto -->
-    <footer id="contacto" class="footer-section">
-        <h2 class="section-title">Contacto</h2>
-        <p>¿Sos speaker, consultor o referente y querés potenciar tu voz en redes? ¡Contactanos y trabajemos juntos! <br>Escribinos a nuestro mail <a href="mailto:info@zaple-tech.com">info@zaple-tech.com</a> o dejanos el tuyo:</p>
-        <form action="https://formspree.io/f/xvgrwpja" method="POST" class="form-container">
-            <input type="email" name="email_contacto" placeholder="Tu correo electrónico" required>
-            <button type="submit">Enviar</button>
-        </form>
-    </footer>
-
-    <!-- Script para el menú hamburguesa en móviles -->
     <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- Menú Hamburguesa ---
         const hamburgerButton = document.getElementById('hamburger-button');
         const navMenu = document.querySelector('.nav-menu');
-
         hamburgerButton.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             hamburgerButton.classList.toggle('active');
         });
-
-        // Cierra el menú si se hace clic en un enlace
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
                 hamburgerButton.classList.remove('active');
             });
         });
+
+        // --- Lógica de Speakers Interactivos ---
+        const gridView = document.getElementById('speakers-grid-view');
+        const detailView = document.getElementById('speaker-detail-view');
+        const detailContent = document.getElementById('speaker-detail-content');
+        const backButton = document.getElementById('back-to-grid-btn');
+        const speakerCardElements = document.querySelectorAll('.speaker-card');
+
+        // Generar dinámicamente el contenido de las tarjetas
+        speakerCardElements.forEach(card => {
+            card.innerHTML = `
+                <img src="${card.dataset.img}" alt="Foto de ${card.dataset.name}" class="speaker-photo">
+                <h3 class="speaker-name">${card.dataset.name}</h3>
+                <p class="speaker-title">${card.dataset.title}</p>
+            `;
+            
+            card.addEventListener('click', () => {
+                // Llenar el detalle
+                detailContent.innerHTML = `
+                    <img src="${card.dataset.img}" alt="Foto de ${card.dataset.name}" class="speaker-photo-detail">
+                    <div class="speaker-text-detail">
+                        <h3 class="speaker-name-detail">${card.dataset.name}</h3>
+                        <h4 class="speaker-title-detail">${card.dataset.title}</h4>
+                        <p class="speaker-desc-detail">${card.dataset.desc}</p>
+                    </div>
+                `;
+                // Cambiar de vista
+                gridView.classList.add('hidden');
+                detailView.classList.remove('hidden');
+            });
+        });
+
+        backButton.addEventListener('click', () => {
+            detailView.classList.add('hidden');
+            gridView.classList.remove('hidden');
+        });
+
+        // --- Animaciones al hacer scroll ---
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        animatedElements.forEach(el => observer.observe(el));
+    });
     </script>
+
 </body>
 </html>
