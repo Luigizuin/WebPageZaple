@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zaple - Potenciamos tu Mensaje</title>
-    <!-- Tus links de Google Fonts, etc. no cambian -->
+    <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Urbanist:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Hoja de estilos -->
     <link rel="stylesheet" href="style.css">
+    <!-- Favicon -->
     <link rel="icon" href="images/logo-reducido.png" type="image/png">
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WQGT61DBQ8"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -33,7 +35,6 @@
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
-        <!-- CAMBIO: Añadido el texto "¡Seguinos!" -->
         <div class="social-icons">
             <p class="follow-text">¡Seguinos!</p>
             <a href="https://www.instagram.com/zapletech/" target="_blank" rel="noopener noreferrer"><img src="images/instagram-logo.svg" alt="Instagram"></a>
@@ -51,14 +52,12 @@
                 <p class="hero-description">En Zaple somos expertos en convertir mensajes de videos de formato largo (podcast y entrevistas), a formato corto (shorts). Sabemos lo difícil que es surfear los algoritmos, por eso armamos un equipo de editores y analistas de video que entienden cómo transmitir tu mensaje para que lo escuche todo el mundo.</p>
             </div>
             <div class="hero-column hero-video-content">
-                <!-- CAMBIO: Añadido id para control con JavaScript -->
                 <video id="hero-main-video" autoplay loop muted playsinline class="hero-video">
                     <source src="videos/video-inicio-b.mp4" type="video/mp4">
                 </video>
             </div>
         </section>
 
-        <!-- Las secciones speakers y nosotros no tienen cambios en su HTML -->
         <section id="speakers" class="speakers-section">
             <div class="view-container">
                 <div id="speakers-grid-view">
@@ -105,13 +104,37 @@
                 <button class="carousel-nav next"><img src="images/arrow.svg" alt="Siguiente"></button>
             </div>
         </section>
-        
-        <!-- El resto de las secciones no cambian en su HTML -->
+
         <section id="aprende" class="form-section">
-             <!-- ... sin cambios ... -->
+            <h2 class="section-title">¡Nuestro curso en análisis de videos!</h2>
+            <p>Estamos armando un material para que puedas aprender a analizar como hacemos nosotros. ¡Si querés ser de los primeros en recibir el material anotate abajo!</p>
+            <form action="https://formspree.io/f/xyzjngaq" method="POST" class="form-wrapper">
+                <div class="form-container">
+                    <input type="email" name="email" placeholder="Dejanos tu mail" required>
+                    <button type="submit">¡Anotarme!</button>
+                </div>
+                <div class="form-feedback loading hidden"><img src="images/loading.gif" alt="Cargando..."></div>
+                <div class="form-feedback success hidden">¡Enviado, gracias!</div>
+            </form>
         </section>
+
         <section id="contacto" class="final-section">
-             <!-- ... sin cambios ... -->
+            <div class="final-column contact-column">
+                <h2 class="section-title">Contacto</h2>
+                <p>¿Sos speaker, consultor o referente y querés potenciar tu voz? ¡Contactanos! <br>Escribinos a <a href="mailto:info@zaple-tech.com">info@zaple-tech.com</a> o dejanos tu mail:</p>
+                <form action="https://formspree.io/f/xvgrwpja" method="POST" class="form-wrapper">
+                    <div class="form-container">
+                        <input type="email" name="email_contacto" placeholder="Tu correo electrónico" required>
+                        <button type="submit">Enviar</button>
+                    </div>
+                    <div class="form-feedback loading hidden"><img src="images/loading.gif" alt="Cargando..."></div>
+                    <div class="form-feedback success hidden">¡Enviado, gracias!</div>
+                </form>
+            </div>
+            <div class="final-column rocket-column">
+                 <img src="images/rocket.gif" alt="Cohete volando" class="rocket-gif">
+                 <p class="rocket-text">¡Llevemos tu mensaje a otro nivel!</p>
+            </div>
         </section>
     </main>
 
@@ -185,11 +208,11 @@
                 const videoContainer = document.createElement('div');
                 videoContainer.classList.add('carousel-video');
                 videoContainer.style.transform = `rotateY(${360 / totalVideos * (i - 1)}deg) translateZ(320px)`;
-                videoContainer.innerHTML = `<video src="videos/video-${i}.mp4" playsinline loop></video>`; // Removido 'controls'
+                videoContainer.innerHTML = `<video src="videos/video-${i}.mp4" playsinline loop></video>`;
                 carousel.appendChild(videoContainer);
             }
             const allCarouselVideos = document.querySelectorAll('.carousel-video video');
-
+            
             function updateCarousel() {
                 const rotation = -currentIndex * (360 / totalVideos);
                 carousel.style.transform = `rotateY(${rotation}deg)`;
@@ -203,10 +226,9 @@
                         video.parentElement.classList.remove('active');
                         video.pause();
                     }
-                    // Permitir pausar/despausar el video activo
                     video.onclick = (e) => {
                         if (index === activeIndex) {
-                            e.stopPropagation(); // Evita que otros eventos se disparen
+                            e.stopPropagation();
                             if (video.paused) {
                                 video.play();
                             } else {
