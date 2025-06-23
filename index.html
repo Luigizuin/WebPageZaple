@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zaple - Potenciamos tu Mensaje</title>
-    <!-- ... (Tus links de Google Fonts, etc. no cambian) ... -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Urbanist:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Hoja de estilos CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
     <link rel="icon" href="images/logo-reducido.png" type="image/png">
+
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WQGT61DBQ8"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -17,7 +27,6 @@
 </head>
 <body>
 
-    <!-- ... (El header no cambia su estructura, solo el CSS) ... -->
     <header class="navbar">
         <a href="#inicio" class="navbar-logo">
             <img src="images/logo-zaple.png" alt="Logo de Zaple">
@@ -81,7 +90,7 @@
 
         <!-- Sección Nosotros -->
         <section id="nosotros" class="nosotros-section">
-             <div class="nosotros-content animate-on-scroll">
+             <div class="nosotros-content">
                 <div class="nosotros-text">
                     <h2 class="section-title">Nosotros</h2>
                     <p>Hace más de dos años que estamos hackeando el algoritmo y generando contenido de calidad. Somos un equipo cordobés de editores y analistas de video especializados en formato vertical. Nos definen:</p>
@@ -149,16 +158,24 @@
     <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-        // --- Menú Hamburguesa ---
-        // (Sin cambios, se mantiene igual)
+        const hamburgerButton = document.getElementById('hamburger-button');
+        const navMenu = document.querySelector('.nav-menu');
+        hamburgerButton.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburgerButton.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburgerButton.classList.remove('active');
+            });
+        });
 
-        // --- Lógica de Speakers Interactivos ---
         const gridView = document.getElementById('speakers-grid-view');
         const detailView = document.getElementById('speaker-detail-view');
         const detailContent = document.getElementById('speaker-detail-content');
         const backButton = document.getElementById('back-to-grid-btn');
         const speakerCardElements = document.querySelectorAll('.speaker-card');
-
         speakerCardElements.forEach(card => {
             card.innerHTML = `<img src="${card.dataset.img}" alt="Foto de ${card.dataset.name}" class="speaker-photo"><h3 class="speaker-name">${card.dataset.name}</h3><p class="speaker-title">${card.dataset.title}</p>`;
             card.addEventListener('click', () => {
@@ -179,74 +196,58 @@
                 detailView.classList.remove('hidden');
             });
         });
-
         backButton.addEventListener('click', () => {
             detailView.classList.add('hidden');
             gridView.classList.remove('hidden');
         });
 
-        // --- Lógica del Carrusel de Videos ---
         const carousel = document.querySelector('.carousel');
         const prevButton = document.querySelector('.carousel-nav.prev');
         const nextButton = document.querySelector('.carousel-nav.next');
         const totalVideos = 7;
         let currentIndex = 0;
-
-        for (let i = 1; i <= totalVideos; i++) {
-            const videoContainer = document.createElement('div');
-            videoContainer.classList.add('carousel-video');
-            videoContainer.innerHTML = `<video src="videos/video-${i}.mp4" controls></video>`;
-            carousel.appendChild(videoContainer);
-        }
-        
-        const videoElements = document.querySelectorAll('.carousel-video');
-
-        function updateCarousel() {
-            const angle = 360 / totalVideos;
-            const rotation = -currentIndex * angle;
-            carousel.style.transform = `rotateY(${rotation}deg)`;
-            
-            videoElements.forEach((video, index) => {
-                const videoRotation = index * angle + rotation;
-                if (Math.abs(videoRotation % 360) < (angle / 2)) {
-                    video.classList.add('active');
-                } else {
-                    video.classList.remove('active');
-                }
-            });
-        }
-        
-        nextButton.addEventListener('click', () => {
-            currentIndex++;
+        if (carousel) {
+            for (let i = 1; i <= totalVideos; i++) {
+                const videoContainer = document.createElement('div');
+                videoContainer.classList.add('carousel-video');
+                videoContainer.innerHTML = `<video src="videos/video-${i}.mp4" controls playsinline></video>`;
+                carousel.appendChild(videoContainer);
+            }
+            const videoElements = document.querySelectorAll('.carousel-video');
+            function updateCarousel() {
+                const angle = 360 / totalVideos;
+                const rotation = -currentIndex * angle;
+                carousel.style.transform = `rotateY(${rotation}deg)`;
+                videoElements.forEach((video, index) => {
+                    const videoRotation = index * angle + rotation;
+                    const videoElement = video.querySelector('video');
+                    if (Math.abs(videoRotation % 360) < (angle / 2)) {
+                        video.classList.add('active');
+                        videoElement.play(); // Opcional: auto-play del video activo
+                    } else {
+                        video.classList.remove('active');
+                        videoElement.pause();
+                    }
+                });
+            }
+            nextButton.addEventListener('click', () => { currentIndex++; updateCarousel(); });
+            prevButton.addEventListener('click', () => { currentIndex--; updateCarousel(); });
             updateCarousel();
-        });
-        
-        prevButton.addEventListener('click', () => {
-            currentIndex--;
-            updateCarousel();
-        });
+        }
 
-        updateCarousel(); // Initialize
-
-        // --- Lógica de Formularios Mejorada ---
         document.querySelectorAll('.form-wrapper').forEach(formWrapper => {
             const form = formWrapper.querySelector('form');
             const formContainer = formWrapper.querySelector('.form-container');
             const loadingFeedback = formWrapper.querySelector('.form-feedback.loading');
             const successFeedback = formWrapper.querySelector('.form-feedback.success');
-
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
                 const formData = new FormData(form);
                 const action = form.getAttribute('action');
-                
                 formContainer.classList.add('hidden');
                 loadingFeedback.classList.remove('hidden');
-
                 fetch(action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
+                    method: 'POST', body: formData, headers: { 'Accept': 'application/json' }
                 }).then(response => {
                     if (response.ok) {
                         loadingFeedback.classList.add('hidden');
@@ -257,7 +258,6 @@
                             form.reset();
                         }, 3000);
                     } else {
-                        // Manejar error si es necesario
                         alert("Hubo un error al enviar el formulario.");
                         loadingFeedback.classList.add('hidden');
                         formContainer.classList.remove('hidden');
@@ -269,9 +269,6 @@
                 });
             });
         });
-
-        // --- Animaciones al hacer scroll ---
-        // (Sin cambios, se mantiene igual)
     });
     </script>
 </body>
