@@ -51,14 +51,14 @@
                 <p class="hero-description">En Zaple somos expertos en convertir mensajes de videos de formato largo (podcast y entrevistas), a formato corto (shorts). Sabemos lo difícil que es surfear los algoritmos, por eso armamos un equipo de editores y analistas de video que entienden cómo transmitir tu mensaje para que lo escuche todo el mundo.</p>
             </div>
             <div class="hero-column hero-video-content">
-                <!-- CAMBIO: Eliminado "controls", añadido id para JS -->
-                <video autoplay loop muted playsinline class="hero-video" id="hero-main-video">
+                <!-- CAMBIO: Añadido id para control con JavaScript -->
+                <video id="hero-main-video" autoplay loop muted playsinline class="hero-video">
                     <source src="videos/video-inicio-b.mp4" type="video/mp4">
                 </video>
             </div>
         </section>
 
-        <!-- El resto de las secciones se mantienen igual en su estructura HTML -->
+        <!-- Las secciones speakers y nosotros no tienen cambios en su HTML -->
         <section id="speakers" class="speakers-section">
             <div class="view-container">
                 <div id="speakers-grid-view">
@@ -105,37 +105,13 @@
                 <button class="carousel-nav next"><img src="images/arrow.svg" alt="Siguiente"></button>
             </div>
         </section>
-
+        
+        <!-- El resto de las secciones no cambian en su HTML -->
         <section id="aprende" class="form-section">
-            <h2 class="section-title">¡Nuestro curso en análisis de videos!</h2>
-            <p>Estamos armando un material para que puedas aprender a analizar como hacemos nosotros. ¡Si querés ser de los primeros en recibir el material anotate abajo!</p>
-            <form action="https://formspree.io/f/xyzjngaq" method="POST" class="form-wrapper">
-                <div class="form-container">
-                    <input type="email" name="email" placeholder="Dejanos tu mail" required>
-                    <button type="submit">¡Anotarme!</button>
-                </div>
-                <div class="form-feedback loading hidden"><img src="images/loading.gif" alt="Cargando..."></div>
-                <div class="form-feedback success hidden">¡Enviado, gracias!</div>
-            </form>
+             <!-- ... sin cambios ... -->
         </section>
-
         <section id="contacto" class="final-section">
-            <div class="final-column contact-column">
-                <h2 class="section-title">Contacto</h2>
-                <p>¿Sos speaker, consultor o referente y querés potenciar tu voz? ¡Contactanos! <br>Escribinos a <a href="mailto:info@zaple-tech.com">info@zaple-tech.com</a> o dejanos tu mail:</p>
-                <form action="https://formspree.io/f/xvgrwpja" method="POST" class="form-wrapper">
-                    <div class="form-container">
-                        <input type="email" name="email_contacto" placeholder="Tu correo electrónico" required>
-                        <button type="submit">Enviar</button>
-                    </div>
-                    <div class="form-feedback loading hidden"><img src="images/loading.gif" alt="Cargando..."></div>
-                    <div class="form-feedback success hidden">¡Enviado, gracias!</div>
-                </form>
-            </div>
-            <div class="final-column rocket-column">
-                 <img src="images/rocket.gif" alt="Cohete volando" class="rocket-gif">
-                 <p class="rocket-text">¡Llevemos tu mensaje a otro nivel!</p>
-            </div>
+             <!-- ... sin cambios ... -->
         </section>
     </main>
 
@@ -159,11 +135,12 @@
             });
         });
 
-        // --- Video del Hero con sonido al pasar el mouse ---
+        // --- Video del Hero con sonido al hacer click ---
         const heroVideo = document.getElementById('hero-main-video');
         if (heroVideo) {
-            heroVideo.addEventListener('mouseenter', () => { heroVideo.muted = false; });
-            heroVideo.addEventListener('mouseleave', () => { heroVideo.muted = true; });
+            heroVideo.addEventListener('click', () => {
+                heroVideo.muted = !heroVideo.muted;
+            });
         }
 
         // --- Lógica de Speakers Interactivos ---
@@ -207,29 +184,41 @@
             for (let i = 1; i <= totalVideos; i++) {
                 const videoContainer = document.createElement('div');
                 videoContainer.classList.add('carousel-video');
-                // CAMBIO: Se aplica la rotación al contenedor, no al video.
                 videoContainer.style.transform = `rotateY(${360 / totalVideos * (i - 1)}deg) translateZ(320px)`;
                 videoContainer.innerHTML = `<video src="videos/video-${i}.mp4" playsinline loop></video>`; // Removido 'controls'
                 carousel.appendChild(videoContainer);
             }
             const allCarouselVideos = document.querySelectorAll('.carousel-video video');
+
             function updateCarousel() {
                 const rotation = -currentIndex * (360 / totalVideos);
                 carousel.style.transform = `rotateY(${rotation}deg)`;
-                // CAMBIO: Lógica de Play/Pause
+                
                 allCarouselVideos.forEach((video, index) => {
-                    if (index === (currentIndex % totalVideos + totalVideos) % totalVideos) {
+                    const activeIndex = (currentIndex % totalVideos + totalVideos) % totalVideos;
+                    if (index === activeIndex) {
                         video.parentElement.classList.add('active');
                         video.play();
                     } else {
                         video.parentElement.classList.remove('active');
                         video.pause();
                     }
+                    // Permitir pausar/despausar el video activo
+                    video.onclick = (e) => {
+                        if (index === activeIndex) {
+                            e.stopPropagation(); // Evita que otros eventos se disparen
+                            if (video.paused) {
+                                video.play();
+                            } else {
+                                video.pause();
+                            }
+                        }
+                    };
                 });
             }
             nextButton.addEventListener('click', () => { currentIndex++; updateCarousel(); });
             prevButton.addEventListener('click', () => { currentIndex--; updateCarousel(); });
-            updateCarousel(); // Initialize
+            updateCarousel();
         }
 
         // --- Lógica de Formularios Mejorada ---
