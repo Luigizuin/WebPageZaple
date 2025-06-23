@@ -16,7 +16,7 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
 }
-section { padding: 120px 40px; position: relative; } /* Aumento general de padding */
+section { padding: 120px 40px; position: relative; }
 .section-title { font-family: var(--font-title); font-size: 2.8rem; font-weight: 800; margin-bottom: 3rem; letter-spacing: -1px; text-align: center; }
 
 /* --- Barra de Navegación (Header) --- */
@@ -27,7 +27,8 @@ section { padding: 120px 40px; position: relative; } /* Aumento general de paddi
 .nav-menu a { color: var(--color-text); text-decoration: none; font-weight: 500; font-size: 1rem; position: relative; padding-bottom: 5px; }
 .nav-menu a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--color-purple); transition: width 0.3s ease; }
 .nav-menu a:hover::after { width: 100%; }
-.social-icons { display: flex; gap: 20px; }
+.social-icons { display: flex; gap: 15px; align-items: center; }
+.follow-text { font-size: 0.9rem; font-weight: 500; color: #ccc; }
 .social-icons img { height: 22px; transition: transform 0.2s ease; }
 .social-icons a:hover img { transform: scale(1.15); }
 .hamburger-menu { display: none; background: transparent; border: none; cursor: pointer; }
@@ -38,7 +39,7 @@ section { padding: 120px 40px; position: relative; } /* Aumento general de paddi
 .hero-text-content { text-align: left; }
 .hero-title { font-family: var(--font-title); font-weight: 800; font-size: 3.2rem; line-height: 1.2; margin-bottom: 2rem; }
 .hero-description { font-size: 1.2rem; }
-.hero-video { width: 100%; max-width: 300px; height: auto; border-radius: 20px; margin: 0 auto; display: block; }
+.hero-video { width: 100%; max-width: 300px; height: auto; border-radius: 20px; margin: 0 auto; display: block; cursor: pointer; }
 
 /* --- Sección de Speakers --- */
 .speakers-section { background-color: var(--color-section-bg); }
@@ -64,8 +65,8 @@ section { padding: 120px 40px; position: relative; } /* Aumento general de paddi
 .instagram-link img { height: 24px; }
 
 /* --- Sección Nosotros --- */
-.nosotros-section { background-color: var(--color-dark-bg); }
-.nosotros-content { display: flex; align-items: center; gap: 50px; max-width: 1100px; margin: 0 auto; }
+.nosotros-section { background-image: url('images/background-main.png'); background-size: cover; background-position: center; background-attachment: fixed; }
+.nosotros-content { display: flex; align-items: center; gap: 50px; max-width: 1100px; margin: 0 auto; background-color: rgba(12, 10, 26, 0.6); padding: 40px; border-radius: 15px; backdrop-filter: blur(5px); }
 .nosotros-text { flex: 2; }
 .nosotros-text .section-title { text-align: left; }
 .nosotros-text p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; }
@@ -76,38 +77,38 @@ section { padding: 120px 40px; position: relative; } /* Aumento general de paddi
 
 /* --- Sección Nuestro Trabajo (Carrusel) --- */
 .trabajo-section { background-color: var(--color-dark-bg); overflow-x: hidden; }
-.carousel-container { height: 500px; position: relative; perspective: 1500px; }
+.trabajo-section .section-title { margin-bottom: 5rem; }
+.carousel-container { height: 450px; position: relative; perspective: 1500px; }
 .carousel { width: 100%; height: 100%; position: absolute; transform-style: preserve-3d; transition: transform 0.8s ease-in-out; }
-.carousel-video { position: absolute; width: 280px; height: 480px; top: 10px; left: calc(50% - 140px); backface-visibility: hidden; /* Evita parpadeos */ }
-.carousel-video video { width: 100%; height: 100%; border-radius: 15px; object-fit: cover; }
+.carousel-video { position: absolute; width: 250px; height: 430px; top: 10px; left: calc(50% - 125px); backface-visibility: hidden; transition: opacity 0.8s, filter 0.8s; }
+.carousel-video video { width: 100%; height: 100%; border-radius: 15px; object-fit: cover; cursor: pointer; }
+.carousel-video:not(.active) { opacity: 0.4; filter: blur(3px); pointer-events: none; }
+.carousel-video.active { opacity: 1; filter: none; }
 .carousel-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); width: 50px; height: 50px; border-radius: 50%; cursor: pointer; z-index: 20; backdrop-filter: blur(5px); display: flex; justify-content: center; align-items: center; }
 .carousel-nav img { width: 18px; }
-/* CAMBIO: Posición de las flechas */
-.carousel-nav.prev { left: 20%; }
+.carousel-nav.prev { left: 25%; }
 .carousel-nav.prev img { transform: rotate(180deg); }
-.carousel-nav.next { right: 20%; }
+.carousel-nav.next { right: 25%; }
 
-/* --- Secciones de Formularios --- */
+/* --- Secciones de Formularios y Final --- */
 .form-section { background-color: var(--color-section-bg); text-align: center; max-width: 100%; padding: 200px 40px; }
 .form-section .section-title, .form-section p { max-width: 700px; margin-left: auto; margin-right: auto; }
 .form-section p { margin-bottom: 2rem; }
 .form-wrapper { min-height: 50px; position: relative; max-width: 450px; margin: 0 auto; }
-.form-container { display: flex; justify-content: center; gap: 10px; }
-.form-feedback { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; font-weight: 700; font-size: 1.2rem; }
+.form-container { display: flex; justify-content: center; gap: 10px; transition: opacity 0.3s; }
+.form-container.hidden { opacity: 0; pointer-events: none; }
+.form-feedback { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; font-weight: 700; font-size: 1.2rem; transition: opacity 0.3s; }
 .form-feedback.loading img { height: 40px; }
 .form-feedback.success { color: #28a745; }
 .form-container input { width: 300px; padding: 12px 15px; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; background-color: rgba(255, 255, 255, 0.1); color: var(--color-text); font-family: var(--font-body); font-size: 1rem; }
 .form-container button { padding: 12px 25px; border: none; border-radius: 8px; background-color: var(--color-purple); color: var(--color-text); font-family: var(--font-title); font-weight: 700; font-size: 1rem; cursor: pointer; transition: background-color 0.3s ease; }
-
-/* --- Sección Final Fusionada --- */
 .final-section { position: relative; display: flex; padding: 0; background: linear-gradient(to right, var(--color-dark-bg) 45%, #090a0f 65%); }
-/* CAMBIO: Capa de estrellas con transparencia */
 .final-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url(images/estrellas.gif); background-size: cover; opacity: 0.15; z-index: 0; }
-.final-column { flex: 1; padding: 180px 60px; display: flex; flex-direction: column; justify-content: center; z-index: 1; /* Para estar sobre las estrellas */ }
+.final-column { flex: 1; padding: 180px 60px; display: flex; flex-direction: column; justify-content: center; z-index: 1; }
 .contact-column { text-align: left; }
 .contact-column .section-title { text-align: left; }
-.contact-column p { max-width: 450px; font-size: 1.1rem; /* CAMBIO: Texto más grande */ }
-.contact-column .form-wrapper { margin: 0; /* CAMBIO: Alinear a la izquierda */ }
+.contact-column p { max-width: 450px; font-size: 1.1rem; }
+.contact-column .form-wrapper { margin: 0; }
 .contact-column .form-container { justify-content: flex-start; }
 .contact-column a { color: var(--color-purple); font-weight: 700; text-decoration: none; }
 .rocket-column { align-items: center; text-align: center; }
@@ -122,11 +123,11 @@ section { padding: 120px 40px; position: relative; } /* Aumento general de paddi
 @media (max-width: 1024px) {
     .hero-section { flex-direction: column; text-align: center; gap: 50px; padding: 120px 20px; }
     .hero-text-content { text-align: center; }
-    .nav-menu { flex: 0; }
     .social-icons { display: none; }
-    .final-column { padding: 120px 40px; }
     .carousel-nav.prev { left: 10%; }
     .carousel-nav.next { right: 10%; }
+    .nosotros-content { padding: 30px; }
+    .final-column { padding: 120px 40px; }
 }
 @media (max-width: 850px) {
     .navbar { padding: 15px 20px; }
@@ -145,6 +146,8 @@ section { padding: 120px 40px; position: relative; } /* Aumento general de paddi
     #speaker-detail-content, .nosotros-content, .final-section { flex-direction: column; }
     .speaker-text-detail, .nosotros-text .section-title, .contact-column, .contact-column .section-title { text-align: center; }
     .contact-column .form-wrapper { margin: 0 auto; }
+    .form-container { flex-direction: column; align-items: center; }
+    .form-container input { width: 100%; max-width: 350px; }
     .final-section { background: var(--color-dark-bg); }
     .final-column { padding: 80px 20px; }
     .carousel-nav.prev { left: 5px; }
