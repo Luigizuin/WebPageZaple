@@ -55,9 +55,10 @@
                 <video id="hero-main-video" autoplay loop muted playsinline class="hero-video">
                     <source src="videos/video-inicio-b.mp4" type="video/mp4">
                 </video>
-                <!-- CAMBIO: Contenedor para el ícono de sonido -->
-                <div class="unmute-overlay">
-                    <img src="images/unmute-icon.svg" alt="Activar sonido">
+                <!-- CAMBIO: Contenedor para los íconos de sonido -->
+                <div class="sound-overlay">
+                    <img src="images/unmute-icon.svg" class="unmute-icon" alt="Activar sonido">
+                    <img src="images/mute-icon.svg" class="mute-icon" alt="Silenciar">
                 </div>
             </div>
         </section>
@@ -163,10 +164,24 @@
         });
 
         // --- Video del Hero con sonido al hacer click ---
+        const heroVideoContainer = document.querySelector('.hero-video-content');
         const heroVideo = document.getElementById('hero-main-video');
-        if (heroVideo) {
-            heroVideo.parentElement.addEventListener('click', () => {
+        if (heroVideoContainer && heroVideo) {
+            // Establecer estado inicial
+            if (heroVideo.muted) {
+                heroVideoContainer.classList.add('is-muted');
+            }
+            // Listener para el click
+            heroVideoContainer.addEventListener('click', () => {
                 heroVideo.muted = !heroVideo.muted;
+            });
+            // Listener para cambios de estado (importante para reflejar el estado correcto)
+            heroVideo.addEventListener('volumechange', () => {
+                if (heroVideo.muted) {
+                    heroVideoContainer.classList.add('is-muted');
+                } else {
+                    heroVideoContainer.classList.remove('is-muted');
+                }
             });
         }
 
