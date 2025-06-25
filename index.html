@@ -52,11 +52,14 @@
                 <p class="hero-description">En Zaple somos expertos en convertir mensajes de videos de formato largo (podcast y entrevistas), a formato corto (shorts). Sabemos lo difícil que es surfear los algoritmos, por eso armamos un equipo de editores y analistas de video que entienden cómo transmitir tu mensaje para que lo escuche todo el mundo.</p>
             </div>
             <div class="hero-column hero-video-content">
-                <!-- CAMBIO: Contenedor wrapper añadido -->
-                <div class="video-wrapper">
+                <div class="video-wrapper is-loading">
                     <video id="hero-main-video" autoplay loop muted playsinline class="hero-video">
                         <source src="videos/video-inicio-b.mp4" type="video/mp4">
                     </video>
+                    <!-- CAMBIO: Loader y Overlay -->
+                    <div class="video-loader">
+                        <img src="images/loading.gif" alt="Cargando video...">
+                    </div>
                     <div class="sound-overlay">
                         <img src="images/unmute-icon.svg" class="unmute-icon" alt="Activar sonido">
                         <img src="images/mute-icon.svg" class="mute-icon" alt="Silenciar">
@@ -114,11 +117,13 @@
 
         <section id="aprende" class="form-section">
             <h2 class="section-title">¡Nuestro curso en análisis de videos!</h2>
-            <p>Estamos armando un material para que puedas aprender a analizar como hacemos nosotros. ¡Si querés ser de los primeros en recibir el material anotate abajo!</p>
+            <!-- CAMBIO: Texto actualizado -->
+            <p class="form-description">Estamos armando un material para que puedas aprender a analizar shorts como lo hacemos nosotros. ¡Si querés ser de los primeros en enterarte cuando esté disponible anotate acá!</p>
             <form action="https://formspree.io/f/xyzjngaq" method="POST" class="form-wrapper">
                 <div class="form-container">
                     <input type="email" name="email" placeholder="Dejanos tu mail" required>
-                    <button type="submit">¡Anotarme!</button>
+                    <!-- CAMBIO: Botón con nueva clase -->
+                    <button type="submit" class="button-secondary">¡Anotarme!</button>
                 </div>
                 <div class="form-feedback loading hidden"><img src="images/loading.gif" alt="Cargando..."></div>
                 <div class="form-feedback success hidden">¡Enviado, gracias!</div>
@@ -128,7 +133,7 @@
         <section id="contacto" class="final-section">
             <div class="final-column contact-column">
                 <h2 class="section-title">Contacto</h2>
-                <p>¿Sos speaker, consultor o referente y querés potenciar tu voz? ¡Contactanos! <br>Escribinos a <a href="mailto:info@zaple-tech.com">info@zaple-tech.com</a> o dejanos tu mail:</p>
+                <p class="form-description">¿Sos speaker, consultor o referente y querés potenciar tu voz? ¡Contactanos! <br>Escribinos a <a href="mailto:info@zaple-tech.com">info@zaple-tech.com</a> o dejanos tu mail:</p>
                 <form action="https://formspree.io/f/xvgrwpja" method="POST" class="form-wrapper">
                     <div class="form-container">
                         <input type="email" name="email_contacto" placeholder="Tu correo electrónico" required>
@@ -165,13 +170,15 @@
             });
         });
 
-        // --- Video del Hero con sonido al hacer click ---
+        // --- Video del Hero con sonido y loader ---
         const heroVideo = document.getElementById('hero-main-video');
         if (heroVideo) {
-            const videoWrapper = heroVideo.parentElement; // Ahora es .video-wrapper
-            if (heroVideo.muted) {
-                videoWrapper.classList.add('is-muted');
-            }
+            const videoWrapper = heroVideo.closest('.video-wrapper');
+            
+            heroVideo.addEventListener('canplay', () => {
+                videoWrapper.classList.remove('is-loading');
+            });
+
             videoWrapper.addEventListener('click', () => {
                 heroVideo.muted = !heroVideo.muted;
             });
@@ -185,6 +192,7 @@
         }
 
         // --- Lógica de Speakers Interactivos ---
+        // (Sin cambios)
         const gridView = document.getElementById('speakers-grid-view');
         const detailView = document.getElementById('speaker-detail-view');
         const detailContent = document.getElementById('speaker-detail-content');
@@ -269,6 +277,7 @@
         }
 
         // --- Lógica de Formularios Mejorada ---
+        // (Sin cambios)
         document.querySelectorAll('.form-wrapper').forEach(formWrapper => {
             const formContainer = formWrapper.querySelector('.form-container');
             const loadingFeedback = formWrapper.querySelector('.form-feedback.loading');

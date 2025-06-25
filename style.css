@@ -4,6 +4,7 @@
     --font-body: 'Urbanist', sans-serif;
     --color-text: #f0f0f0;
     --color-purple: #4f3a9a;
+    --color-purple-bright: #8a7acd; /* Nuevo color para botón secundario */
     --color-dark-bg: #0c0a1a;
     --color-section-bg: rgba(12, 10, 26, 0.8);
 }
@@ -36,15 +37,19 @@ section { padding: 120px 40px; position: relative; }
 /* --- Sección de Inicio (Hero) --- */
 .hero-section { min-height: 90vh; display: flex; align-items: center; gap: 30px; background-image: url('images/background-main.png'); background-size: cover; background-position: center; }
 .hero-column { flex: 1; padding: 0 5%; }
-.hero-video-content { text-align: center; /* Para centrar el wrapper */ }
+.hero-video-content { text-align: center; }
 .hero-text-content { text-align: left; }
 .hero-title { font-family: var(--font-title); font-weight: 800; font-size: 3.2rem; line-height: 1.2; margin-bottom: 2rem; }
 .hero-description { font-size: 1.2rem; }
 .video-wrapper { position: relative; display: inline-block; border-radius: 20px; overflow: hidden; line-height: 0; cursor: pointer; }
 .hero-video { width: 100%; max-width: 300px; height: auto; display: block; }
-.sound-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; pointer-events: none; opacity: 0; transition: opacity 0.3s ease; background-color: rgba(0,0,0,0.3); }
+.sound-overlay, .video-loader { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background-color: rgba(0,0,0,0.5); transition: opacity 0.3s ease; }
+.sound-overlay { pointer-events: none; opacity: 0; }
 .sound-overlay img { width: 50px; height: 50px; }
 .video-wrapper:hover .sound-overlay { opacity: 1; }
+.video-wrapper.is-loading .sound-overlay { display: none; }
+.video-loader { z-index: 2; }
+.video-wrapper:not(.is-loading) .video-loader { display: none; }
 .mute-icon { display: none; }
 .video-wrapper.is-muted .unmute-icon { display: block; }
 .video-wrapper.is-muted .mute-icon { display: none; }
@@ -88,9 +93,9 @@ section { padding: 120px 40px; position: relative; }
 /* --- Sección Nuestro Trabajo (Carrusel) --- */
 .trabajo-section { background-color: var(--color-dark-bg); overflow: hidden; }
 .trabajo-section .section-title { margin-bottom: 5rem; }
-.carousel-container { height: 450px; position: relative; perspective: 1500px; }
+.carousel-container { height: 420px; position: relative; perspective: 1500px; }
 .carousel { width: 100%; height: 100%; position: absolute; transform-style: preserve-3d; transition: transform 0.8s ease-in-out; }
-.carousel-video { position: absolute; width: 250px; height: 430px; top: 10px; left: calc(50% - 125px); backface-visibility: hidden; transition: opacity 0.8s, filter 0.8s; }
+.carousel-video { position: absolute; width: 220px; height: 400px; top: 10px; left: calc(50% - 110px); backface-visibility: hidden; transition: opacity 0.8s, filter 0.8s; }
 .carousel-video video { width: 100%; height: 100%; border-radius: 15px; object-fit: cover; }
 .carousel-video:not(.active) { opacity: 0.4; filter: blur(3px); pointer-events: none; }
 .carousel-video.active { opacity: 1; filter: none; }
@@ -108,8 +113,8 @@ section { padding: 120px 40px; position: relative; }
 
 /* --- Secciones de Formularios y Final --- */
 .form-section { background-color: var(--color-section-bg); text-align: center; max-width: 100%; padding: 200px 40px; }
-.form-section .section-title, .form-section p { max-width: 700px; margin-left: auto; margin-right: auto; }
-.form-section p { margin-bottom: 2rem; }
+.form-section .section-title, .form-section .form-description { max-width: 700px; margin-left: auto; margin-right: auto; }
+.form-description { margin-bottom: 2.5rem; font-size: 1.1rem; }
 .form-wrapper { min-height: 50px; position: relative; max-width: 450px; margin: 0 auto; }
 .form-container { display: flex; justify-content: center; gap: 10px; transition: opacity 0.3s; }
 .form-container.hidden { opacity: 0; pointer-events: none; }
@@ -118,12 +123,14 @@ section { padding: 120px 40px; position: relative; }
 .form-feedback.success { color: #28a745; }
 .form-container input { width: 300px; padding: 12px 15px; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; background-color: rgba(255, 255, 255, 0.1); color: var(--color-text); font-family: var(--font-body); font-size: 1rem; }
 .form-container button { padding: 12px 25px; border: none; border-radius: 8px; background-color: var(--color-purple); color: var(--color-text); font-family: var(--font-title); font-weight: 700; font-size: 1rem; cursor: pointer; transition: background-color 0.3s ease; }
+.button-secondary { background-color: var(--color-purple-bright) !important; }
+.button-secondary:hover { background-color: #a192e4 !important; }
 .final-section { position: relative; display: flex; padding: 0; background: linear-gradient(to right, var(--color-dark-bg) 45%, #090a0f 65%); }
 .final-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url(images/estrellas.gif); background-size: cover; opacity: 0.15; z-index: 0; }
 .final-column { flex: 1; padding: 180px 60px; display: flex; flex-direction: column; justify-content: center; z-index: 1; }
 .contact-column { text-align: left; }
-.contact-column .section-title { text-align: left; }
-.contact-column p { max-width: 450px; font-size: 1.1rem; }
+.contact-column .section-title { text-align: left; margin-bottom: 1.5rem; }
+.contact-column .form-description { margin-left: 0; margin-right: 0; margin-bottom: 2.5rem; }
 .contact-column .form-wrapper { margin: 0; }
 .contact-column .form-container { justify-content: flex-start; }
 .contact-column a { color: var(--color-purple); font-weight: 700; text-decoration: none; }
