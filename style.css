@@ -91,12 +91,12 @@ section { padding: 120px 40px; position: relative; }
 
 /* --- Sección Nuestro Trabajo (Carrusel) --- */
 .trabajo-section { background-color: var(--color-dark-bg); overflow: hidden; }
-.trabajo-content { display: flex; align-items: center; gap: 50px; }
-.trabajo-carousel-column { flex: 1; }
+.trabajo-content { display: flex; align-items: center; gap: 60px; }
+.trabajo-carousel-column { flex: 2; }
 .trabajo-info-column { flex: 1; text-align: left; }
-.carousel-container { height: 420px; position: relative; perspective: 1500px; }
+.carousel-container { height: 400px; position: relative; perspective: 1500px; }
 .carousel { width: 100%; height: 100%; position: absolute; transform-style: preserve-3d; transition: transform 0.8s ease-in-out; }
-.carousel-video { position: absolute; width: 220px; height: 400px; top: 10px; left: calc(50% - 110px); backface-visibility: hidden; transition: opacity 0.8s, filter 0.8s; }
+.carousel-video { position: absolute; width: 200px; height: 360px; top: 10px; left: calc(50% - 100px); backface-visibility: hidden; transition: opacity 0.8s, filter 0.8s; }
 .carousel-video video { width: 100%; height: 100%; border-radius: 15px; object-fit: cover; }
 .carousel-video:not(.active) { opacity: 0.4; filter: blur(3px); pointer-events: none; }
 .carousel-video.active { opacity: 1; filter: none; }
@@ -111,16 +111,13 @@ section { padding: 120px 40px; position: relative; }
 .carousel-nav.prev { left: -20px; }
 .carousel-nav.prev img { transform: rotate(180deg); }
 .carousel-nav.next { right: -20px; }
-.video-views-title { font-family: var(--font-title); font-size: 2rem; color: var(--color-purple-bright); margin-bottom: 1rem; }
-.video-speaker-profile { display: flex; align-items: center; gap: 15px; margin-bottom: 1.5rem; }
-#video-speaker-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
-#video-speaker-name { font-weight: 700; }
+.video-views-title { font-family: var(--font-title); font-size: 3.2rem; color: var(--color-purple-bright); margin-bottom: 2rem; }
 .video-description-text { color: #ccc; margin-bottom: 2rem; }
 .video-social-link { background-color: var(--color-purple); color: var(--color-text); text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; display: inline-flex; transition: background-color 0.3s; }
 .video-social-link:hover { background-color: var(--color-purple-bright); }
 #trabajo-info-box { transition: opacity 0.2s ease-in-out; }
 #trabajo-info-box.fade-out { opacity: 0; }
-.carousel-thumbnails { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
+.carousel-thumbnails { display: flex; justify-content: center; gap: 15px; margin-top: 40px; }
 .thumbnail-item { background-color: transparent; border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 50%; padding: 3px; cursor: pointer; transition: border-color 0.3s; }
 .thumbnail-item:hover { border-color: var(--color-purple-bright); }
 .thumbnail-item.active { border-color: var(--color-purple); }
@@ -143,7 +140,7 @@ section { padding: 120px 40px; position: relative; }
 .final-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url(images/estrellas.gif); background-size: cover; opacity: 0.15; z-index: 0; }
 .final-column { flex: 1; padding: 180px 60px; display: flex; flex-direction: column; justify-content: center; z-index: 1; }
 .contact-column { text-align: left; }
-.contact-column .section-title { margin-bottom: 1.5rem; text-align: left; }
+.contact-column .section-title { text-align: left; margin-bottom: 1.5rem; }
 .contact-column .form-description { margin-left: 0; margin-right: 0; margin-bottom: 1.5rem; font-size: 1.2rem; }
 .contact-column .form-wrapper { margin: 0; margin-top: 1rem; }
 .contact-column .form-container { justify-content: flex-start; }
