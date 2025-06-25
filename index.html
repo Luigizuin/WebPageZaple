@@ -119,7 +119,6 @@
                 <div class="trabajo-info-column">
                     <div id="trabajo-info-box">
                         <h3 id="video-views-title" class="video-views-title"></h3>
-                        <!-- CAMBIO: Eliminado el perfil del speaker de esta sección -->
                         <p id="video-description" class="video-description-text"></p>
                         <a id="video-social-link" href="#" target="_blank" rel="noopener noreferrer" class="video-social-link">
                             ¡Miralo en las redes!
@@ -237,13 +236,13 @@
 
         // --- Lógica del Carrusel de Videos con Información y Miniaturas ---
         const videoData = [
-            { views: '+1.3 M views', description: 'Iniciar el video con una promesa de una historia impactante, continuar con una historia "relatable" y finalizar con una reflexión hacen que la estructura de este reel retenga y genere debate.', socialLink: 'https://www.tiktok.com/@patriciajebsen/video/7483923666703600902?lang=es-419' },
-            { views: '+8.4 M views', description: 'Con una estética un poco más descuidada se pueden lograr grandes resultados gracias a:<br>🔍 Selección de material base que ataca un miedo común y una duda muy difundida.<br>⭐ Apalancamiento en la figura de alguien conocido al inicio.<br>😮 Advertencias y datos impactantes en el desarrollo.', socialLink: 'https://www.instagram.com/reel/C2-G796OGIX' },
-            { views: '+400 K views', description: 'La selección de un tema que genera debate es crucial en el éxito de un video, en este caso trajimos al inicio la presentación del tema polémico para luego pasar al desarrollo y justificación.', socialLink: null },
-            { views: '+15 K views', description: 'En este video el hilado de temas es crucial. Luego de llamar la atención con una promesa incial, colocamos tres secciones que van llevando la narrativa hacia el desenlace final con una revelación que advierte sobre algo que está ocurriendo y quizás no notamos.', socialLink: 'https://www.instagram.com/reel/DIHOGRBJhwa/' },
-            { views: '+10 K views', description: 'Esta es la muestra de que se puede trabajar con material de baja resolucion y lograr grandees resultados. La afirmación que colocamos al inicio ayuda a retener y el tema genera debate.', socialLink: 'https://www.instagram.com/reel/DH3gnclKiU9/' },
-            { views: '+80 K views', description: 'En este reel la música deja servido un ambiente reflexivo que acompaña el pensamiento de Tomi, da feeling al video y ayuda a retener. También los insert de películas conocidas acompañan su temática geek.', socialLink: 'https://www.instagram.com/reel/DBJOmFoOFbz/' },
-            { views: '+1.8 M views', description: 'Es el video más viral de la cuenta, las claves están en:<br>🔍 Selección del material base pensando en el público de Claudio<br>🧩 Estructura armada para enganchar y retener al usuario<br>🖱️ Edición acorde al mensaje y estética prolija', socialLink: 'https://www.instagram.com/p/DEjRFtfMH9_/' }
+            { videoSrc: 'videos/video-1.mp4', speakerImg: 'images/pato-jebsen.jpg', speakerName: 'Pato Jebsen', views: '+1.3 M views', description: 'Iniciar el video con una promesa de una historia impactante, continuar con una historia "relatable" y finalizar con una reflexión hacen que la estructura de este reel retenga y genere debate.', socialLink: 'https://www.tiktok.com/@patriciajebsen/video/7483923666703600902?lang=es-419' },
+            { videoSrc: 'videos/video-2.mp4', speakerImg: 'images/santi-bilinkis.jpg', speakerName: 'Santi Bilinkis', views: '+8.4 M views', description: 'Con una estética un poco más descuidada se pueden lograr grandes resultados gracias a:<br>🔍 Selección de material base que ataca un miedo común y una duda muy difundida.<br>⭐ Apalancamiento en la figura de alguien conocido al inicio.<br>😮 Advertencias y datos impactantes en el desarrollo.', socialLink: 'https://www.instagram.com/reel/C2-G796OGIX' },
+            { videoSrc: 'videos/video-3.mp4', speakerImg: 'images/ale-melamed.jpg', speakerName: 'Ale Melamed', views: '+400 K views', description: 'La selección de un tema que genera debate es crucial en el éxito de un video, en este caso trajimos al inicio la presentación del tema polémico para luego pasar al desarrollo y justificación.', socialLink: null },
+            { videoSrc: 'videos/video-4.mp4', speakerImg: 'images/meli-masnatta.jpg', speakerName: 'Meli Masnatta', views: '+15 K views', description: 'En este video el hilado de temas es crucial. Luego de llamar la atención con una promesa incial, colocamos tres secciones que van llevando la narrativa hacia el desenlace final con una revelación que advierte sobre algo que está ocurriendo y quizás no notamos.', socialLink: 'https://www.instagram.com/reel/DIHOGRBJhwa/' },
+            { videoSrc: 'videos/video-5.mp4', speakerImg: 'images/fede-ast.jpg', speakerName: 'Fede Ast', views: '+10 K views', description: 'Esta es la muestra de que se puede trabajar con material de baja resolucion y lograr grandees resultados. La afirmación que colocamos al inicio ayuda a retener y el tema genera debate.', socialLink: 'https://www.instagram.com/reel/DH3gnclKiU9/' },
+            { videoSrc: 'videos/video-6.mp4', speakerImg: 'images/tomi-balmaceda.jpg', speakerName: 'Tomi Balmaceda', views: '+80 K views', description: 'En este reel la música deja servido un ambiente reflexivo que acompaña el pensamiento de Tomi, da feeling al video y ayuda a retener. También los insert de películas conocidas acompañan su temática geek.', socialLink: 'https://www.instagram.com/reel/DBJOmFoOFbz/' },
+            { videoSrc: 'videos/video-7.mp4', speakerImg: 'images/claudio-zuchoviki.jpg', speakerName: 'Claudio Zuchovicki', views: '+1.8 M views', description: 'Es el video más viral de la cuenta, las claves están en:<br>🔍 Selección del material base pensando en el público de Claudio<br>🧩 Estructura armada para enganchar y retener al usuario<br>🖱️ Edición acorde al mensaje y estética prolija', socialLink: 'https://www.instagram.com/p/DEjRFtfMH9_/' }
         ];
 
         const carousel = document.querySelector('.carousel');
@@ -259,19 +258,19 @@
         const socialLink = document.getElementById('video-social-link');
 
         if (carousel) {
-            for (let i = 0; i < totalVideos; i++) {
+            videoData.forEach((data, i) => {
                 const videoContainer = document.createElement('div');
                 videoContainer.classList.add('carousel-video');
-                videoContainer.style.transform = `rotateY(${360 / totalVideos * i}deg) translateZ(320px)`;
-                videoContainer.innerHTML = `<video src="videos/video-${i + 1}.mp4" playsinline loop></video><div class="video-overlay"><img src="images/play-icon.svg" class="play-icon" alt="Play"><img src="images/pause-icon.svg" class="pause-icon" alt="Pause"></div>`;
+                videoContainer.style.transform = `rotateY(${360 / totalVideos * i}deg) translateZ(280px)`;
+                videoContainer.innerHTML = `<video src="${data.videoSrc}" playsinline loop></video><div class="video-overlay"><img src="images/play-icon.svg" class="play-icon" alt="Play"><img src="images/pause-icon.svg" class="pause-icon" alt="Pause"></div>`;
                 carousel.appendChild(videoContainer);
 
                 const thumbnail = document.createElement('button');
                 thumbnail.classList.add('thumbnail-item');
                 thumbnail.dataset.index = i;
-                thumbnail.innerHTML = `<img src="${speakerCardElements[i].dataset.img}" alt="${speakerCardElements[i].dataset.name}">`;
+                thumbnail.innerHTML = `<img src="${data.speakerImg}" alt="${data.speakerName}">`;
                 thumbnailsContainer.appendChild(thumbnail);
-            }
+            });
             
             const allCarouselVideos = document.querySelectorAll('.carousel-video video');
             const allThumbnails = document.querySelectorAll('.thumbnail-item');
