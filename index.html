@@ -105,30 +105,12 @@
              </div>
         </section>
 
-        <!-- CAMBIO: Nueva estructura de dos columnas -->
         <section id="trabajo" class="trabajo-section">
             <h2 class="section-title">Nuestro Trabajo</h2>
-            <div class="trabajo-content">
-                <div class="trabajo-carousel-column">
-                    <div class="carousel-container">
-                        <div class="carousel"></div>
-                        <button class="carousel-nav prev"><img src="images/arrow.svg" alt="Anterior"></button>
-                        <button class="carousel-nav next"><img src="images/arrow.svg" alt="Siguiente"></button>
-                    </div>
-                </div>
-                <div class="trabajo-info-column">
-                    <div id="trabajo-info-box">
-                        <h3 id="video-views-title" class="video-views-title"></h3>
-                        <div id="video-speaker-profile" class="video-speaker-profile">
-                            <img id="video-speaker-img" src="" alt="Foto del speaker">
-                            <span id="video-speaker-name"></span>
-                        </div>
-                        <p id="video-description" class="video-description-text"></p>
-                        <a id="video-social-link" href="#" target="_blank" rel="noopener noreferrer" class="video-social-link">
-                            ¡Miralo en las redes!
-                        </a>
-                    </div>
-                </div>
+            <div class="carousel-container">
+                <div class="carousel"></div>
+                <button class="carousel-nav prev"><img src="images/arrow.svg" alt="Anterior"></button>
+                <button class="carousel-nav next"><img src="images/arrow.svg" alt="Siguiente"></button>
             </div>
         </section>
 
@@ -195,7 +177,7 @@
             });
 
             videoWrapper.addEventListener('click', (e) => {
-                e.preventDefault();
+                e.preventDefault(); // Evita que el click en el wrapper haga algo más
                 heroVideo.muted = !heroVideo.muted;
             });
             heroVideo.addEventListener('volumechange', () => {
@@ -238,39 +220,19 @@
             gridView.classList.remove('hidden');
         });
 
-        // --- Lógica del Carrusel de Videos con Información ---
-        const videoData = [
-            { views: '+ 1,3 M views', speakerName: 'Pato Jebsen', speakerImg: 'images/pato-jebsen.jpg', description: 'Iniciar el video con una promesa de una historia impactante, continuar con una historia "relatable" y finalizar con una reflexión hacen que la estructura de este reel retenga y genere debate.', socialLink: 'https://www.tiktok.com/@patriciajebsen/video/7483923666703600902?lang=es-419' },
-            { views: '+8,4 M visualizaciones', speakerName: 'Santi Bilinkis', speakerImg: 'images/santi-bilinkis.jpg', description: 'Con una estética un poco más descuidada se pueden lograr grandes resultados gracias a:<br>🔍 Selección de material base que ataca un miedo común y una duda muy difundida.<br>⭐ Apalancamiento en la figura de alguien conocido al inicio.<br>😮 Advertencias y datos impactantes en el desarrollo.', socialLink: 'https://www.instagram.com/reel/C2-G796OGIX' },
-            { views: '+400 K visualizaciones', speakerName: 'Ale Melamed', speakerImg: 'images/ale-melamed.jpg', description: 'La selección de un tema que genera debate es crucial en el éxito de un video, en este caso trajimos al inicio la presentación del tema polémico para luego pasar al desarrollo y justificación.', socialLink: null },
-            { views: '+ 15 K views', speakerName: 'Meli Masnatta', speakerImg: 'images/meli-masnatta.jpg', description: 'En este video el hilado de temas es crucial. Luego de llamar la atención con una promesa incial, colocamos tres secciones que van llevando la narrativa hacia el desenlace final con una revelación que advierte sobre algo que está ocurriendo y quizás no notamos.', socialLink: 'https://www.instagram.com/reel/DIHOGRBJhwa/' },
-            { views: '+ 10 K views', speakerName: 'Fede Ast', speakerImg: 'images/fede-ast.jpg', description: 'Esta es la muestra de que se puede trabajar con material de baja resolucion y lograr grandees resultados. La afirmación que colocamos al inicio ayuda a retener y el tema genera debate.', socialLink: 'https://www.instagram.com/reel/DH3gnclKiU9/' },
-            { views: '+ 80 K views', speakerName: 'Tomi Balmaceda', speakerImg: 'images/tomi-balmaceda.jpg', description: 'En este reel la música deja servido un ambiente reflexivo que acompaña el pensamiento de Tomi, da feeling al video y ayuda a retener. También los insert de películas conocidas acompañan su temática geek.', socialLink: 'https://www.instagram.com/reel/DBJOmFoOFbz/' },
-            { views: '+1,8 Millones de visualizaciones', speakerName: 'Claudio Zuchovicki', speakerImg: 'images/claudio-zuchoviki.jpg', description: 'Es el video más viral de la cuenta, las claves están en:<br>🔍 Selección del material base pensando en el público de Claudio<br>🧩 Estructura armada para enganchar y retener al usuario<br>🖱️ Edición acorde al mensaje y estética prolija', socialLink: 'https://www.instagram.com/p/DEjRFtfMH9_/' }
-        ];
-
+        // --- Lógica del Carrusel de Videos ---
         const carousel = document.querySelector('.carousel');
         const prevButton = document.querySelector('.carousel-nav.prev');
         const nextButton = document.querySelector('.carousel-nav.next');
-        const totalVideos = videoData.length;
+        const totalVideos = 7;
         let currentIndex = 0;
-
-        // Elementos del panel de información
-        const infoBox = document.getElementById('trabajo-info-box');
-        const viewsTitle = document.getElementById('video-views-title');
-        const speakerProfile = document.getElementById('video-speaker-profile');
-        const speakerImg = document.getElementById('video-speaker-img');
-        const speakerName = document.getElementById('video-speaker-name');
-        const description = document.getElementById('video-description');
-        const socialLink = document.getElementById('video-social-link');
-
         if (carousel) {
-            for (let i = 0; i < totalVideos; i++) {
+            for (let i = 1; i <= totalVideos; i++) {
                 const videoContainer = document.createElement('div');
                 videoContainer.classList.add('carousel-video');
-                videoContainer.style.transform = `rotateY(${360 / totalVideos * i}deg) translateZ(320px)`;
+                videoContainer.style.transform = `rotateY(${360 / totalVideos * (i - 1)}deg) translateZ(320px)`;
                 videoContainer.innerHTML = `
-                    <video src="videos/video-${i + 1}.mp4" playsinline loop></video>
+                    <video src="videos/video-${i}.mp4" playsinline loop></video>
                     <div class="video-overlay">
                         <img src="images/play-icon.svg" class="play-icon" alt="Play">
                         <img src="images/pause-icon.svg" class="pause-icon" alt="Pause">
@@ -284,34 +246,12 @@
                 video.addEventListener('pause', () => video.parentElement.classList.remove('is-playing'));
             });
 
-            function updateInfoPanel(index) {
-                const data = videoData[index];
-                infoBox.classList.add('fade-out');
-
-                setTimeout(() => {
-                    viewsTitle.textContent = data.views;
-                    speakerImg.src = data.speakerImg;
-                    speakerName.textContent = data.speakerName;
-                    description.innerHTML = data.description;
-                    
-                    if (data.socialLink) {
-                        socialLink.href = data.socialLink;
-                        socialLink.style.display = 'inline-flex';
-                    } else {
-                        socialLink.style.display = 'none';
-                    }
-                    infoBox.classList.remove('fade-out');
-                }, 200);
-            }
-
             function updateCarousel() {
-                const activeIndex = (currentIndex % totalVideos + totalVideos) % totalVideos;
                 const rotation = -currentIndex * (360 / totalVideos);
                 carousel.style.transform = `rotateY(${rotation}deg)`;
                 
-                updateInfoPanel(activeIndex);
-                
                 allCarouselVideos.forEach((video, index) => {
+                    const activeIndex = (currentIndex % totalVideos + totalVideos) % totalVideos;
                     if (index === activeIndex) {
                         video.parentElement.classList.add('active');
                         video.play();
