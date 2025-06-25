@@ -56,7 +56,6 @@
                     <video id="hero-main-video" autoplay loop muted playsinline class="hero-video">
                         <source src="videos/video-inicio-b.mp4" type="video/mp4">
                     </video>
-                    <!-- CAMBIO: Loader y Overlay -->
                     <div class="video-loader">
                         <img src="images/loading.gif" alt="Cargando video...">
                     </div>
@@ -117,12 +116,10 @@
 
         <section id="aprende" class="form-section">
             <h2 class="section-title">¡Nuestro curso en análisis de videos!</h2>
-            <!-- CAMBIO: Texto actualizado -->
             <p class="form-description">Estamos armando un material para que puedas aprender a analizar shorts como lo hacemos nosotros. ¡Si querés ser de los primeros en enterarte cuando esté disponible anotate acá!</p>
             <form action="https://formspree.io/f/xyzjngaq" method="POST" class="form-wrapper">
                 <div class="form-container">
                     <input type="email" name="email" placeholder="Dejanos tu mail" required>
-                    <!-- CAMBIO: Botón con nueva clase -->
                     <button type="submit" class="button-secondary">¡Anotarme!</button>
                 </div>
                 <div class="form-feedback loading hidden"><img src="images/loading.gif" alt="Cargando..."></div>
@@ -179,7 +176,8 @@
                 videoWrapper.classList.remove('is-loading');
             });
 
-            videoWrapper.addEventListener('click', () => {
+            videoWrapper.addEventListener('click', (e) => {
+                e.preventDefault(); // Evita que el click en el wrapper haga algo más
                 heroVideo.muted = !heroVideo.muted;
             });
             heroVideo.addEventListener('volumechange', () => {
@@ -192,7 +190,6 @@
         }
 
         // --- Lógica de Speakers Interactivos ---
-        // (Sin cambios)
         const gridView = document.getElementById('speakers-grid-view');
         const detailView = document.getElementById('speaker-detail-view');
         const detailContent = document.getElementById('speaker-detail-content');
@@ -277,7 +274,6 @@
         }
 
         // --- Lógica de Formularios Mejorada ---
-        // (Sin cambios)
         document.querySelectorAll('.form-wrapper').forEach(formWrapper => {
             const formContainer = formWrapper.querySelector('.form-container');
             const loadingFeedback = formWrapper.querySelector('.form-feedback.loading');

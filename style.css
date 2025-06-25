@@ -43,12 +43,11 @@ section { padding: 120px 40px; position: relative; }
 .hero-description { font-size: 1.2rem; }
 .video-wrapper { position: relative; display: inline-block; border-radius: 20px; overflow: hidden; line-height: 0; cursor: pointer; }
 .hero-video { width: 100%; max-width: 300px; height: auto; display: block; }
-.sound-overlay, .video-loader { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background-color: rgba(0,0,0,0.5); transition: opacity 0.3s ease; }
-.sound-overlay { pointer-events: none; opacity: 0; }
-.sound-overlay img { width: 50px; height: 50px; }
-.video-wrapper:hover .sound-overlay { opacity: 1; }
-.video-wrapper.is-loading .sound-overlay { display: none; }
-.video-loader { z-index: 2; }
+.sound-overlay, .video-loader { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; transition: opacity 0.3s ease; }
+.sound-overlay { pointer-events: none; opacity: 0; background-color: rgba(0,0,0,0.3); }
+.sound-overlay img, .video-loader img { width: 50px; height: 50px; }
+.video-wrapper:not(.is-loading):hover .sound-overlay { opacity: 1; }
+.video-loader { z-index: 2; background-color: rgba(0,0,0,0.5); }
 .video-wrapper:not(.is-loading) .video-loader { display: none; }
 .mute-icon { display: none; }
 .video-wrapper.is-muted .unmute-icon { display: block; }
@@ -130,8 +129,8 @@ section { padding: 120px 40px; position: relative; }
 .final-column { flex: 1; padding: 180px 60px; display: flex; flex-direction: column; justify-content: center; z-index: 1; }
 .contact-column { text-align: left; }
 .contact-column .section-title { text-align: left; margin-bottom: 1.5rem; }
-.contact-column .form-description { margin-left: 0; margin-right: 0; margin-bottom: 2.5rem; }
-.contact-column .form-wrapper { margin: 0; }
+.contact-column .form-description { margin-left: 0; margin-right: 0; margin-bottom: 2.5rem; font-size: 1.2rem; }
+.contact-column .form-wrapper { margin: 0; margin-top: 1rem; }
 .contact-column .form-container { justify-content: flex-start; }
 .contact-column a { color: var(--color-purple); font-weight: 700; text-decoration: none; }
 .rocket-column { align-items: center; text-align: center; }
