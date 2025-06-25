@@ -91,7 +91,7 @@ section { padding: 120px 40px; position: relative; }
 
 /* --- Sección Nuestro Trabajo (Carrusel) --- */
 .trabajo-section { background-color: var(--color-dark-bg); overflow: hidden; }
-.trabajo-section .section-title { margin-bottom: 6rem; } /* CAMBIO: Más margen inferior */
+.trabajo-section .section-title { margin-bottom: 5rem; } /* CAMBIO: Más margen inferior */
 .trabajo-content { display: flex; align-items: center; gap: 60px; }
 .trabajo-carousel-column { flex: 3; }
 .trabajo-info-column { flex: 1; text-align: left; }
