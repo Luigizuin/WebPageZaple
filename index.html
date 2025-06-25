@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CAMBIO SEO 1: Meta Descripción -->
     <title>Zaple - Potenciamos tu Mensaje</title>
+    <meta name="description" content="En Zaple convertimos videos largos, podcasts y entrevistas en contenido viral de formato corto para redes sociales. Potenciamos la voz de speakers y referentes.">
     <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -101,22 +103,43 @@
                         <li>😁 La buena onda</li>
                     </ul>
                 </div>
-                <div class="nosotros-image"><img src="images/equipo-zaple.jpg" alt="El equipo de Zaple"></div>
+                <!-- CAMBIO SEO 2: Texto alt añadido -->
+                <div class="nosotros-image"><img src="images/equipo-zaple.jpg" alt="El equipo de Zaple trabajando en sus computadoras"></div>
              </div>
         </section>
 
         <section id="trabajo" class="trabajo-section">
             <h2 class="section-title">Nuestro Trabajo</h2>
-            <div class="carousel-container">
-                <div class="carousel"></div>
-                <button class="carousel-nav prev"><img src="images/arrow.svg" alt="Anterior"></button>
-                <button class="carousel-nav next"><img src="images/arrow.svg" alt="Siguiente"></button>
+            <div class="trabajo-content">
+                <div class="trabajo-carousel-column">
+                    <div class="carousel-container">
+                        <div class="carousel"></div>
+                        <button class="carousel-nav prev"><img src="images/arrow.svg" alt="Anterior"></button>
+                        <button class="carousel-nav next"><img src="images/arrow.svg" alt="Siguiente"></button>
+                    </div>
+                    <!-- CAMBIO UX 1: Contenedor para las miniaturas -->
+                    <div class="carousel-thumbnails" id="carousel-thumbnails-container"></div>
+                </div>
+                <div class="trabajo-info-column">
+                    <div id="trabajo-info-box">
+                        <h3 id="video-views-title" class="video-views-title"></h3>
+                        <div id="video-speaker-profile" class="video-speaker-profile">
+                            <img id="video-speaker-img" src="" alt="Foto del speaker del video">
+                            <span id="video-speaker-name"></span>
+                        </div>
+                        <p id="video-description" class="video-description-text"></p>
+                        <a id="video-social-link" href="#" target="_blank" rel="noopener noreferrer" class="video-social-link">
+                            ¡Miralo en las redes!
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="aprende" class="form-section">
             <h2 class="section-title">¡Nuestro curso en análisis de videos!</h2>
-            <p class="form-description">Estamos armando un material para que puedas aprender a analizar shorts como lo hacemos nosotros. ¡Si querés ser de los primeros en enterarte cuando esté disponible anotate acá!</p>
+            <!-- CAMBIO Estrategia: Texto actualizado para mejorar conversión -->
+            <p class="form-description">Estamos armando un material para que puedas aprender a analizar shorts como lo hacemos nosotros. ¡Anotate acá y recibí un descuento de lanzamiento exclusivo!</p>
             <form action="https://formspree.io/f/xyzjngaq" method="POST" class="form-wrapper">
                 <div class="form-container">
                     <input type="email" name="email" placeholder="Dejanos tu mail" required>
@@ -141,7 +164,8 @@
                 </form>
             </div>
             <div class="final-column rocket-column">
-                 <img src="images/rocket.gif" alt="Cohete volando" class="rocket-gif">
+                 <!-- CAMBIO SEO 2: Texto alt añadido -->
+                 <img src="images/rocket.gif" alt="Cohete despegando hacia las estrellas" class="rocket-gif">
                  <p class="rocket-text">¡Llevemos tu mensaje a otro nivel!</p>
             </div>
         </section>
@@ -177,7 +201,7 @@
             });
 
             videoWrapper.addEventListener('click', (e) => {
-                e.preventDefault(); // Evita que el click en el wrapper haga algo más
+                e.preventDefault();
                 heroVideo.muted = !heroVideo.muted;
             });
             heroVideo.addEventListener('volumechange', () => {
@@ -220,38 +244,86 @@
             gridView.classList.remove('hidden');
         });
 
-        // --- Lógica del Carrusel de Videos ---
+        // --- Lógica del Carrusel de Videos con Información y Miniaturas ---
+        const videoData = [
+            { views: '+ 1,3 M views', speakerName: 'Pato Jebsen', speakerImg: 'images/pato-jebsen.jpg', description: 'Iniciar el video con una promesa de una historia impactante, continuar con una historia "relatable" y finalizar con una reflexión hacen que la estructura de este reel retenga y genere debate.', socialLink: 'https://www.tiktok.com/@patriciajebsen/video/7483923666703600902?lang=es-419' },
+            { views: '+8,4 M visualizaciones', speakerName: 'Santi Bilinkis', speakerImg: 'images/santi-bilinkis.jpg', description: 'Con una estética un poco más descuidada se pueden lograr grandes resultados gracias a:<br>🔍 Selección de material base que ataca un miedo común y una duda muy difundida.<br>⭐ Apalancamiento en la figura de alguien conocido al inicio.<br>😮 Advertencias y datos impactantes en el desarrollo.', socialLink: 'https://www.instagram.com/reel/C2-G796OGIX' },
+            { views: '+400 K visualizaciones', speakerName: 'Ale Melamed', speakerImg: 'images/ale-melamed.jpg', description: 'La selección de un tema que genera debate es crucial en el éxito de un video, en este caso trajimos al inicio la presentación del tema polémico para luego pasar al desarrollo y justificación.', socialLink: null },
+            { views: '+ 15 K views', speakerName: 'Meli Masnatta', speakerImg: 'images/meli-masnatta.jpg', description: 'En este video el hilado de temas es crucial. Luego de llamar la atención con una promesa incial, colocamos tres secciones que van llevando la narrativa hacia el desenlace final con una revelación que advierte sobre algo que está ocurriendo y quizás no notamos.', socialLink: 'https://www.instagram.com/reel/DIHOGRBJhwa/' },
+            { views: '+ 10 K views', speakerName: 'Fede Ast', speakerImg: 'images/fede-ast.jpg', description: 'Esta es la muestra de que se puede trabajar con material de baja resolucion y lograr grandees resultados. La afirmación que colocamos al inicio ayuda a retener y el tema genera debate.', socialLink: 'https://www.instagram.com/reel/DH3gnclKiU9/' },
+            { views: '+ 80 K views', speakerName: 'Tomi Balmaceda', speakerImg: 'images/tomi-balmaceda.jpg', description: 'En este reel la música deja servido un ambiente reflexivo que acompaña el pensamiento de Tomi, da feeling al video y ayuda a retener. También los insert de películas conocidas acompañan su temática geek.', socialLink: 'https://www.instagram.com/reel/DBJOmFoOFbz/' },
+            { views: '+1,8 Millones de visualizaciones', speakerName: 'Claudio Zuchovicki', speakerImg: 'images/claudio-zuchoviki.jpg', description: 'Es el video más viral de la cuenta, las claves están en:<br>🔍 Selección del material base pensando en el público de Claudio<br>🧩 Estructura armada para enganchar y retener al usuario<br>🖱️ Edición acorde al mensaje y estética prolija', socialLink: 'https://www.instagram.com/p/DEjRFtfMH9_/' }
+        ];
+
         const carousel = document.querySelector('.carousel');
         const prevButton = document.querySelector('.carousel-nav.prev');
         const nextButton = document.querySelector('.carousel-nav.next');
-        const totalVideos = 7;
+        const thumbnailsContainer = document.getElementById('carousel-thumbnails-container');
+        const totalVideos = videoData.length;
         let currentIndex = 0;
+
+        const infoBox = document.getElementById('trabajo-info-box');
+        const viewsTitle = document.getElementById('video-views-title');
+        const speakerImg = document.getElementById('video-speaker-img');
+        const speakerName = document.getElementById('video-speaker-name');
+        const description = document.getElementById('video-description');
+        const socialLink = document.getElementById('video-social-link');
+
         if (carousel) {
-            for (let i = 1; i <= totalVideos; i++) {
+            for (let i = 0; i < totalVideos; i++) {
+                // Crear video en carrusel
                 const videoContainer = document.createElement('div');
                 videoContainer.classList.add('carousel-video');
-                videoContainer.style.transform = `rotateY(${360 / totalVideos * (i - 1)}deg) translateZ(320px)`;
-                videoContainer.innerHTML = `
-                    <video src="videos/video-${i}.mp4" playsinline loop></video>
-                    <div class="video-overlay">
-                        <img src="images/play-icon.svg" class="play-icon" alt="Play">
-                        <img src="images/pause-icon.svg" class="pause-icon" alt="Pause">
-                    </div>`;
+                videoContainer.style.transform = `rotateY(${360 / totalVideos * i}deg) translateZ(320px)`;
+                videoContainer.innerHTML = `<video src="videos/video-${i + 1}.mp4" playsinline loop></video><div class="video-overlay"><img src="images/play-icon.svg" class="play-icon" alt="Play"><img src="images/pause-icon.svg" class="pause-icon" alt="Pause"></div>`;
                 carousel.appendChild(videoContainer);
+
+                // Crear miniatura
+                const thumbnail = document.createElement('button');
+                thumbnail.classList.add('thumbnail-item');
+                thumbnail.dataset.index = i;
+                thumbnail.innerHTML = `<img src="${videoData[i].speakerImg}" alt="${videoData[i].speakerName}">`;
+                thumbnailsContainer.appendChild(thumbnail);
             }
+            
             const allCarouselVideos = document.querySelectorAll('.carousel-video video');
+            const allThumbnails = document.querySelectorAll('.thumbnail-item');
             
             allCarouselVideos.forEach(video => {
                 video.addEventListener('play', () => video.parentElement.classList.add('is-playing'));
                 video.addEventListener('pause', () => video.parentElement.classList.remove('is-playing'));
             });
 
+            function updateInfoPanel(index) {
+                const data = videoData[index];
+                infoBox.classList.add('fade-out');
+                setTimeout(() => {
+                    viewsTitle.textContent = data.views;
+                    speakerImg.src = data.speakerImg;
+                    speakerName.textContent = data.speakerName;
+                    description.innerHTML = data.description;
+                    if (data.socialLink) {
+                        socialLink.href = data.socialLink;
+                        socialLink.style.display = 'inline-flex';
+                    } else {
+                        socialLink.style.display = 'none';
+                    }
+                    infoBox.classList.remove('fade-out');
+                }, 200);
+            }
+
             function updateCarousel() {
+                const activeIndex = (currentIndex % totalVideos + totalVideos) % totalVideos;
                 const rotation = -currentIndex * (360 / totalVideos);
                 carousel.style.transform = `rotateY(${rotation}deg)`;
                 
+                updateInfoPanel(activeIndex);
+                
+                allThumbnails.forEach((thumb, index) => {
+                    thumb.classList.toggle('active', index === activeIndex);
+                });
+
                 allCarouselVideos.forEach((video, index) => {
-                    const activeIndex = (currentIndex % totalVideos + totalVideos) % totalVideos;
                     if (index === activeIndex) {
                         video.parentElement.classList.add('active');
                         video.play();
@@ -268,6 +340,14 @@
                     };
                 });
             }
+            
+            allThumbnails.forEach(thumb => {
+                thumb.addEventListener('click', () => {
+                    currentIndex = parseInt(thumb.dataset.index);
+                    updateCarousel();
+                });
+            });
+
             nextButton.addEventListener('click', () => { currentIndex++; updateCarousel(); });
             prevButton.addEventListener('click', () => { currentIndex--; updateCarousel(); });
             updateCarousel();
