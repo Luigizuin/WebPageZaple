@@ -180,3 +180,7 @@ section { padding: 120px 40px; position: relative; }
     .final-section { background: var(--color-dark-bg); }
     .final-column { padding: 80px 20px; }
 }
+img[src="images/joan-cwaik.jpg"] {
+    object-position: center 25%;
+    transform: scale(1.1); /* Añade un 10% de zoom */
+}
