@@ -1,360 +1,324 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Mejora SEO 1: Título y Meta Descripción -->
-    <title>Zaple - Potenciamos tu Mensaje</title>
-    <meta name="description" content="En Zaple convertimos videos largos, podcasts y entrevistas en contenido viral de formato corto para redes sociales. Potenciamos la voz de speakers y referentes.">
-    <!-- Fuentes de Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Urbanist:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Hoja de estilos -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Favicon -->
-    <link rel="icon" href="images/logo-reducido.png" type="image/png">
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WQGT61DBQ8"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WQGT61DBQ8');
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zaple — Grandes ideas, en formato corto</title>
+  <meta name="description" content="Convertimos podcasts, charlas y entrevistas en shorts que el algoritmo empuja y la gente comparte. Más de 254 millones de views generadas para speakers y referentes.">
+  <meta property="og:title" content="Zaple — Grandes ideas, en formato corto">
+  <meta property="og:description" content="Más de 254 millones de views generadas convirtiendo podcasts, charlas y entrevistas en shorts.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zaple-tech.com/">
+  <meta property="og:image" content="https://zaple-tech.com/images/og-image.jpg">
+  <meta property="og:locale" content="es_AR">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://zaple-tech.com/">
+  <meta name="theme-color" content="#07060d">
+  <link rel="icon" href="images/logo-reducido.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WQGT61DBQ8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WQGT61DBQ8');
+  </script>
 </head>
 <body>
 
-    <header class="navbar">
-        <a href="#inicio" class="navbar-logo"><img src="images/logo-zaple.png" alt="Logo de Zaple"></a>
-        <nav class="nav-menu">
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#speakers">Voces</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#trabajo">Nuestro Trabajo</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-        <div class="social-icons">
-            <p class="follow-text">¡Seguinos!</p>
-            <a href="https://www.instagram.com/zapletech/" target="_blank" rel="noopener noreferrer"><img src="images/instagram-logo.svg" alt="Instagram"></a>
-            <a href="https://www.linkedin.com/company/zapletech/" target="_blank" rel="noopener noreferrer"><img src="images/linkedin-logo.svg" alt="LinkedIn"></a>
+  <div class="page-progress" data-sp="page" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a href="#inicio" class="nav-logo" aria-label="Zaple, inicio"><img src="images/logo-zaple.png" alt="Zaple" width="72" height="24"></a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#proceso">Proceso</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#voces">Voces</a>
+      <a href="#nosotros">Nosotros</a>
+    </nav>
+    <a href="#contacto" class="btn btn-primary btn-sm magnetic">Hablemos</a>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio" data-sp="exit">
+      <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <h1 class="hero-title">
+            <span class="line"><span class="load-in" style="--d:1">Grandes ideas,</span></span>
+            <span class="line"><em class="load-in grad-text" style="--d:2">en formato corto.</em></span>
+          </h1>
+          <p class="hero-sub load-in" style="--d:3">Convertimos tus podcasts, charlas y entrevistas en shorts que el algoritmo empuja y la gente comparte.</p>
+          <div class="hero-ctas load-in" style="--d:4">
+            <a class="btn btn-primary magnetic" href="#contacto">Quiero potenciar mi voz <span aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="#resultados">Ver resultados</a>
+          </div>
+          <div class="hero-proof load-in" style="--d:5">
+            <div class="avatars" aria-hidden="true">
+              <img src="images/clients/santi-bilinkis.jpg" alt="">
+              <img src="images/clients/claudio-zuchovicki-avatar.jpg" alt="">
+              <img src="images/clients/mateo-salvatto.jpg" alt="">
+              <img src="images/clients/andres-rieznik.jpg" alt="">
+              <img src="images/clients/meli-masnatta.jpg" alt="">
+            </div>
+            <p><strong>+254M de views</strong> generadas para nuestros clientes</p>
+          </div>
         </div>
-        <button class="hamburger-menu" id="hamburger-button">
-            <span></span><span></span><span></span>
-        </button>
-    </header>
 
-    <main>
-        <section id="inicio" class="hero-section">
-            <div class="hero-column hero-text-content">
-                <h1 class="hero-title">Contenido en formato corto para grandes ideas</h1>
-                <p class="hero-description">En Zaple somos expertos en convertir mensajes de videos de formato largo (podcast y entrevistas), a formato corto (shorts). Sabemos lo difícil que es surfear los algoritmos, por eso armamos un equipo de editores y analistas de video que entienden cómo transmitir tu mensaje para que lo escuche todo el mundo.</p>
+        <div class="hero-visual load-in" style="--d:2">
+          <div class="phone">
+            <video id="hero-video" autoplay muted loop playsinline preload="auto" poster="images/posters/video-inicio-b.jpg" src="videos/video-inicio-b.mp4"></video>
+            <button class="sound-btn" id="sound-btn" type="button" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path class="sound-waves" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path class="sound-x" d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span class="sound-label">Activar sonido</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <a href="#proceso" class="scroll-hint" aria-label="Bajar a la siguiente sección"><span>Scrolleá</span><i></i></a>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <section class="marquee" aria-label="Clientes">
+      <div class="marquee-row">
+        <div class="marquee-track">
+          <span>Santi Bilinkis</span><span class="star">✦</span>
+          <span>Claudio Zuchovicki</span><span class="star">✦</span>
+          <span>Mateo Salvatto</span><span class="star">✦</span>
+          <span>Andrés Rieznik</span><span class="star">✦</span>
+          <span>Fabricio Ballarini</span><span class="star">✦</span>
+          <span>Fredi Vivas</span><span class="star">✦</span>
+          <span>Joan Cwaik</span><span class="star">✦</span>
+          <span>Jonatan Loidi</span><span class="star">✦</span>
+          <span>Ale Melamed</span><span class="star">✦</span>
+          <span>Pato Jebsen</span><span class="star">✦</span>
+          <span>Tomi Balmaceda</span><span class="star">✦</span>
+          <span>Meli Masnatta</span><span class="star">✦</span>
+          <span>Carlos Sosa</span><span class="star">✦</span>
+          <span>Diego Urfeig</span><span class="star">✦</span>
+          <span>Gaita González</span><span class="star">✦</span>
+          <span>Sebastián Koroch</span><span class="star">✦</span>
+          <span>Agustín Gimenez</span><span class="star">✦</span>
+          <span aria-hidden="true">Santi Bilinkis</span><span class="star" aria-hidden="true">✦</span>
+          <span aria-hidden="true">Claudio Zuchovicki</span><span class="star" aria-hidden="true">✦</span>
+          <span aria-hidden="true">Mateo Salvatto</span><span class="star" aria-hidden="true">✦</span>
+          <span aria-hidden="true">Andrés Rieznik</span><span class="star" aria-hidden="true">✦</span>
+          <span aria-hidden="true">Fabricio Ballarini</span><span class="star" aria-hidden="true">✦</span>
+          <span aria-hidden="true">Fredi Vivas</span><span class="star" aria-hidden="true">✦</span>
+          <span aria-hidden="true">Joan Cwaik</span><span class="star" aria-hidden="true">✦</span>
+          <span aria-hidden="true">Jonatan Loidi</span><span class="star" aria-hidden="true">✦</span>
+          <span aria-hidden="true">Ale Melamed</span><span class="star" aria-hidden="true">✦</span>
+          <span aria-hidden="true">Pato Jebsen</span><span class="star" aria-hidden="true">✦</span>
+          <span aria-hidden="true">Tomi Balmaceda</span><span class="star" aria-hidden="true">✦</span>
+          <span aria-hidden="true">Meli Masnatta</span><span class="star" aria-hidden="true">✦</span>
+          <span aria-hidden="true">Carlos Sosa</span><span class="star" aria-hidden="true">✦</span>
+          <span aria-hidden="true">Diego Urfeig</span><span class="star" aria-hidden="true">✦</span>
+          <span aria-hidden="true">Gaita González</span><span class="star" aria-hidden="true">✦</span>
+          <span aria-hidden="true">Sebastián Koroch</span><span class="star" aria-hidden="true">✦</span>
+          <span aria-hidden="true">Agustín Gimenez</span><span class="star" aria-hidden="true">✦</span>
+        </div>
+      </div>
+      <div class="marquee-row reverse" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Podcasts</span><span class="star">→</span><span>Shorts</span><span class="star">✦</span>
+          <span>Charlas</span><span class="star">→</span><span>Reels</span><span class="star">✦</span>
+          <span>Entrevistas</span><span class="star">→</span><span>TikToks</span><span class="star">✦</span>
+          <span>Podcasts</span><span class="star">→</span><span>Shorts</span><span class="star">✦</span>
+          <span>Charlas</span><span class="star">→</span><span>Reels</span><span class="star">✦</span>
+          <span>Entrevistas</span><span class="star">→</span><span>TikToks</span><span class="star">✦</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESO ============ -->
+    <section class="story" id="proceso" data-sp="contain">
+      <div class="story-sticky">
+        <header class="story-head">
+          <p class="kicker">Cómo trabajamos</p>
+          <h2 class="h2">De una hora de charla<br>a <em class="grad-text">45 segundos</em> que no se pueden soltar.</h2>
+        </header>
+
+        <div class="story-stage">
+          <div class="frame">
+            <video muted loop playsinline autoplay preload="metadata" poster="images/posters/video-inicio-a.jpg" src="videos/video-inicio-a.mp4"></video>
+            <div class="tag-long">
+              <span class="tag-long-pill"><span class="rec"></span> Podcast original · 1:12:44</span>
+              <span class="tag-long-hint">Scrolleá para convertirlo en short ↓</span>
             </div>
-            <div class="hero-column hero-video-content">
-                <div class="video-wrapper is-loading">
-                    <video id="hero-main-video" autoplay loop muted playsinline class="hero-video">
-                        <source src="videos/video-inicio-b.mp4" type="video/mp4">
-                    </video>
-                    <div class="video-loader">
-                        <img src="images/loading.gif" alt="Cargando video...">
-                    </div>
-                    <div class="sound-overlay">
-                        <img src="images/unmute-icon.svg" class="unmute-icon" alt="Activar sonido">
-                        <img src="images/mute-icon.svg" class="mute-icon" alt="Silenciar">
-                    </div>
-                </div>
-            </div>
-        </section>
+            <div class="tag-short">Short · 0:45</div>
+            <div class="frame-timeline" aria-hidden="true"><i style="--x:8%;--w:6%"></i><i style="--x:31%;--w:3%"></i><i style="--x:52%;--w:9%"></i><i style="--x:77%;--w:4%"></i></div>
+          </div>
 
-        <section id="speakers" class="speakers-section">
-            <div class="view-container">
-                <div id="speakers-grid-view">
-                    <h2 class="section-title">Voces que potenciamos</h2>
-                    <div class="speakers-grid">
-                        <div class="speaker-card" data-gender="mujer" data-instagram="https://www.instagram.com/melinamasnatta/" data-name="Meli Masnatta" data-img="images/meli-masnatta.jpg" data-title="Referente en educación, IA e inclusión" data-desc="Cofundadora de 'Chicas en Tecnología', Meli es una emprendedora social premiada que trabaja para cerrar la brecha de género en el ecosistema tecnológico, promoviendo la inclusión y la formación de futuras líderes."></div>
-                        <div class="speaker-card" data-gender="hombre" data-instagram="https://www.instagram.com/s.bilinkis/" data-name="Santi Bilinkis" data-img="images/santi-bilinkis.jpg" data-title="Tecnólogo y emprendedor" data-desc="Autor y conferencista, Santi es una de las voces más influyentes sobre el impacto de la tecnología en la sociedad. Explora cómo la innovación transforma nuestras vidas, el trabajo y el futuro de la humanidad."></div>
-                        <div class="speaker-card" data-gender="hombre" data-instagram="https://www.instagram.com/czuchovicki/reels/" data-name="Claudio Zuchoviki" data-img="images/claudio-zuchoviki.jpg" data-title="Referente y analista financiero" data-desc="Gerente de Desarrollo de la Bolsa de Comercio de Buenos Aires, Claudio es un destacado analista financiero que traduce la complejidad de los mercados a un lenguaje accesible para todos."></div>
-                        <div class="speaker-card" data-gender="hombre" data-instagram="https://www.instagram.com/kleros_io/reels/" data-name="Fede Ast" data-img="images/fede-ast.jpg" data-title="Innovador en blockchain y emprendedor" data-desc="Fundador de Kleros, Fede es un pionero en el campo de la justicia descentralizada. Su trabajo se centra en cómo la tecnología blockchain puede crear sistemas de arbitraje más justos, transparentes y accesibles."></div>
-                        <div class="speaker-card" data-gender="hombre" data-instagram="https://www.instagram.com/capitanintriga/reels/" data-name="Tomi Balmaceda" data-img="images/tomi-balmaceda.jpg" data-title="Filósofo, periodista y creador digital" data-desc="Doctor en Filosofía y periodista, Tomi es un referente en la cultura pop y digital. Analiza con agudeza las tendencias, la tecnología y cómo estas moldean nuestra identidad y comunicación."></div>
-                        <div class="speaker-card" data-gender="hombre" data-instagram="https://www.instagram.com/melamedaleok/reels/" data-name="Ale Melamed" data-img="images/ale-melamed.jpg" data-title="Consultor y líder en futuro del trabajo" data-desc="Autor de best-sellers y conferencista internacional, Ale es un experto en el futuro del trabajo y el desarrollo del talento. Ayuda a organizaciones y personas a navegar la era de la transformación digital."></div>
-                        <div class="speaker-card" data-gender="mujer" data-instagram="https://www.instagram.com/patriciajebsen/reels/" data-name="Pato Jebsen" data-img="images/pato-jebsen.jpg" data-title="Referente en E-commerce y ámbito laboral" data-desc="Especialista en E-commerce y transformación digital, Pato ayuda a empresas a potenciar sus ventas online. Es también una aguda observadora del mundo laboral y las nuevas dinámicas de trabajo."></div>
-			<div class="speaker-card" data-gender="hombre" data-instagram="https://www.instagram.com/joancwaik/" data-name="Joan Cwaik" data-img="images/joan-cwaik.jpg" data-title="Divulgador tecnológico y autor" data-desc="Especialista en tecnologías emergentes y autor de 'El Dilema Humano'. Joan es un referente en la divulgación sobre cómo la inteligencia artificial, la Web3 y la innovación digital están redefiniendo nuestro mundo y futuro."></div>
-                    </div>
-                </div>
-                <div id="speaker-detail-view" class="hidden">
-                    <button id="back-to-grid-btn"><img src="images/arrow.svg" alt="Volver" class="arrow-back"> Volver</button>
-                    <div id="speaker-detail-content"></div>
-                </div>
-            </div>
-        </section>
+          <!-- Anotaciones fuera del video, para que siempre se lean -->
+          <div class="callouts" aria-hidden="true">
+            <div class="callout" style="--c:.5; --y:14%"><b>Estructura</b> del hook al cierre, con ritmo</div>
+            <div class="callout" style="--c:.82; --y:62%"><b>Edición</b> subtítulos, cortes y música</div>
+          </div>
 
-        <section id="nosotros" class="nosotros-section">
-             <div class="nosotros-content">
-                <div class="nosotros-text">
-                    <h2 class="section-title">Nosotros</h2>
-                    <p>Hace más de dos años que estamos hackeando el algoritmo y generando contenido de calidad. Somos un equipo cordobés de editores y analistas de video especializados en formato vertical. Nos definen:</p>
-                    <ul class="nosotros-list">
-                        <li>🌟 La busqueda de la excelencia</li>
-                        <li>✨ La prolijidad en todo lo que hacemos</li>
-                        <li>🔍 El análisis a detalle</li>
-                        <li>🧠 La creatividad para destacar entre tanto ruido</li>
-                        <li>😁 La buena onda</li>
-                    </ul>
-                </div>
-                <div class="nosotros-image"><img src="images/equipo-zaple.jpg" alt="El equipo de Zaple trabajando en sus computadoras"></div>
-             </div>
-        </section>
+          <ol class="steps">
+            <li class="step first" style="--c:.18"><span class="step-n">01</span><h3>Escuchamos todo</h3><p>Vemos el episodio completo y marcamos cada momento con potencial de explotar.</p></li>
+            <li class="step" style="--c:.5"><span class="step-n">02</span><h3>Estructuramos el video</h3><p>Desde el hook hasta los cambios más finos en la estructura interna de tu discurso, para que quede coherente, con buen ritmo y sin interrupciones de la lógica discursiva.</p></li>
+            <li class="step last" style="--c:.82"><span class="step-n">03</span><h3>Editamos para retener</h3><p>Cortes, subtítulos, música y zooms con una estética prolija, pensados para que nadie se vaya antes del final.</p></li>
+          </ol>
+          <div class="step-rail" aria-hidden="true"><i></i></div>
+        </div>
+      </div>
+    </section>
 
-        <section id="trabajo" class="trabajo-section">
-            <h2 class="section-title">Nuestro Trabajo</h2>
-            <div class="trabajo-content">
-                <div class="trabajo-carousel-column">
-                    <div class="carousel-container">
-                        <div class="carousel"></div>
-                        <button class="carousel-nav prev"><img src="images/arrow.svg" alt="Anterior"></button>
-                        <button class="carousel-nav next"><img src="images/arrow.svg" alt="Siguiente"></button>
-                    </div>
-                    <div class="carousel-thumbnails" id="carousel-thumbnails-container"></div>
-                </div>
-                <div class="trabajo-info-column">
-                    <div id="trabajo-info-box">
-                        <h3 id="video-views-title" class="video-views-title"></h3>
-                        <p id="video-description" class="video-description-text"></p>
-                        <a id="video-social-link" href="#" target="_blank" rel="noopener noreferrer" class="video-social-link">
-                            ¡Miralo en las redes!
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- ============ RESULTADOS (horizontal) ============ -->
+    <section class="results" id="resultados" data-sp="contain">
+      <div class="results-sticky">
+        <div class="results-track">
+          <header class="results-head">
+            <p class="kicker">Resultados</p>
+            <h2 class="big-number">+<span class="count" data-to="254">0</span>M</h2>
+            <p class="results-lead">views generadas para nuestros clientes. Detrás de cada una hay una decisión de edición.</p>
+            <p class="results-hint" aria-hidden="true">Seguí scrolleando →</p>
+          </header>
 
-        <section id="contacto" class="final-section">
-            <div class="final-column contact-column">
-                <h2 class="section-title">Contacto</h2>
-                <p>¿Sos speaker, consultor o referente y querés potenciar tu voz? ¡Contactanos! <br>Escribinos a <a href="mailto:info@zaple-tech.com">info@zaple-tech.com</a> o hablanos por <a href="https://www.linkedin.com/company/zapletech/" target="_blank" rel="noopener noreferrer">linkedin!</a></p>
-            </div>
-            <div class="final-column rocket-column">
-                 <img src="images/rocket.gif" alt="Cohete despegando hacia las estrellas" class="rocket-gif">
-                 <p class="rocket-text">¡Llevemos tu mensaje a otro nivel!</p>
-            </div>
-        </section>
-    </main>
+          <article class="clip">
+            <div class="clip-media"><video muted loop playsinline preload="metadata" poster="images/posters/video-2.jpg" src="videos/video-2.mp4"></video><span class="views">+8.4M</span></div>
+            <div class="clip-who"><img src="images/clients/santi-bilinkis.jpg" alt=""><div><strong>Santi Bilinkis</strong><span>Instagram Reels</span></div></div>
+            <ul class="why"><li>Arranca atacando un miedo común</li><li>Se apalanca en una figura conocida</li><li>Datos impactantes en el desarrollo</li></ul>
+            <a class="clip-link" href="https://www.instagram.com/reel/C2-G796OGIX" target="_blank" rel="noopener noreferrer">Ver en redes ↗</a>
+          </article>
 
-    <footer class="footer-final">
-        <p>© 2025 Zaple. Todos los derechos reservados.</p>
-    </footer>
+          <article class="clip">
+            <div class="clip-media"><video muted loop playsinline preload="metadata" poster="images/posters/video-7.jpg" src="videos/video-7.mp4"></video><span class="views">+1.8M</span></div>
+            <div class="clip-who"><img src="images/clients/claudio-zuchovicki.jpg" alt=""><div><strong>Claudio Zuchovicki</strong><span>Instagram Reels</span></div></div>
+            <ul class="why"><li>Ejemplo claro, ideal para su público</li><li>Estructura armada para retener</li><li>Edición acorde al mensaje</li></ul>
+            <a class="clip-link" href="https://www.instagram.com/p/DEjRFtfMH9_/" target="_blank" rel="noopener noreferrer">Ver en redes ↗</a>
+          </article>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // --- Menú Hamburguesa ---
-        const hamburgerButton = document.getElementById('hamburger-button');
-        const navMenu = document.querySelector('.nav-menu');
-        hamburgerButton.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburgerButton.classList.toggle('active');
-        });
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                hamburgerButton.classList.remove('active');
-            });
-        });
+          <article class="clip">
+            <div class="clip-media"><video muted loop playsinline preload="metadata" poster="images/posters/video-1.jpg" src="videos/video-1.mp4"></video><span class="views">+1.3M</span></div>
+            <div class="clip-who"><img src="images/clients/pato-jebsen.jpg" alt=""><div><strong>Pato Jebsen</strong><span>TikTok</span></div></div>
+            <ul class="why"><li>Promete una historia impactante</li><li>Historia "relatable" con música</li><li>Reflexión final que genera debate</li></ul>
+            <a class="clip-link" href="https://www.tiktok.com/@patriciajebsen/video/7483923666703600902" target="_blank" rel="noopener noreferrer">Ver en redes ↗</a>
+          </article>
 
-        // --- Video del Hero con sonido y loader ---
-        const heroVideo = document.getElementById('hero-main-video');
-        if (heroVideo) {
-            const videoWrapper = heroVideo.closest('.video-wrapper');
-            
-            heroVideo.addEventListener('canplay', () => {
-                videoWrapper.classList.remove('is-loading');
-            });
+          <article class="clip">
+            <div class="clip-media"><video muted loop playsinline preload="metadata" poster="images/posters/video-3.jpg" src="videos/video-3.mp4"></video><span class="views">+400K</span></div>
+            <div class="clip-who"><img src="images/clients/ale-melamed.jpg" alt=""><div><strong>Ale Melamed</strong><span>Instagram Reels</span></div></div>
+            <ul class="why"><li>Afirmación polémica al inicio</li><li>La reflexión abre el debate</li><li>Música que marca la gravedad</li></ul>
+            <a class="clip-link" href="https://www.instagram.com/reel/DGOU8l2qr-l/" target="_blank" rel="noopener noreferrer">Ver en redes ↗</a>
+          </article>
 
-            videoWrapper.addEventListener('click', (e) => {
-                e.preventDefault();
-                heroVideo.muted = !heroVideo.muted;
-            });
-            heroVideo.addEventListener('volumechange', () => {
-                if (heroVideo.muted) {
-                    videoWrapper.classList.add('is-muted');
-                } else {
-                    videoWrapper.classList.remove('is-muted');
-                }
-            });
-        }
+          <article class="clip">
+            <div class="clip-media"><video muted loop playsinline preload="metadata" poster="images/posters/video-6.jpg" src="videos/video-6.mp4"></video><span class="views">+80K</span></div>
+            <div class="clip-who"><img src="images/clients/tomi-balmaceda.jpg" alt=""><div><strong>Tomi Balmaceda</strong><span>Instagram Reels</span></div></div>
+            <ul class="why"><li>Música que invita a reflexionar</li><li>Inicio con movimiento y zoom</li><li>Crítica social que genera debate</li></ul>
+            <a class="clip-link" href="https://www.instagram.com/reel/DBJOmFoOFbz/" target="_blank" rel="noopener noreferrer">Ver en redes ↗</a>
+          </article>
 
-        // --- Lógica de Speakers Interactivos ---
-        const gridView = document.getElementById('speakers-grid-view');
-        const detailView = document.getElementById('speaker-detail-view');
-        const detailContent = document.getElementById('speaker-detail-content');
-        const backButton = document.getElementById('back-to-grid-btn');
-        const speakerCardElements = document.querySelectorAll('.speaker-card');
-        speakerCardElements.forEach(card => {
-            card.innerHTML = `<img src="${card.dataset.img}" alt="Foto de ${card.dataset.name}" class="speaker-photo"><h3 class="speaker-name">${card.dataset.name}</h3><p class="speaker-title">${card.dataset.title}</p>`;
-            card.addEventListener('click', () => {
-                const followText = card.dataset.gender === 'mujer' ? '¡Seguila en Instagram!' : '¡Seguilo en Instagram!';
-                detailContent.innerHTML = `
-                    <img src="${card.dataset.img}" alt="Foto de ${card.dataset.name}" class="speaker-photo-detail">
-                    <div class="speaker-text-detail">
-                        <h3 class="speaker-name-detail">${card.dataset.name}</h3>
-                        <h4 class="speaker-title-detail">${card.dataset.title}</h4>
-                        <p class="speaker-desc-detail">${card.dataset.desc}</p>
-                        <a href="${card.dataset.instagram}" target="_blank" rel="noopener noreferrer" class="instagram-link">
-                            ${followText}
-                            <img src="images/instagram-logo.svg" alt="Instagram">
-                        </a>
-                    </div>
-                `;
-                gridView.classList.add('hidden');
-                detailView.classList.remove('hidden');
-            });
-        });
-        backButton.addEventListener('click', () => {
-            detailView.classList.add('hidden');
-            gridView.classList.remove('hidden');
-        });
+          <article class="clip">
+            <div class="clip-media"><video muted loop playsinline preload="metadata" poster="images/posters/video-4.jpg" src="videos/video-4.mp4"></video><span class="views">+15K</span></div>
+            <div class="clip-who"><img src="images/clients/meli-masnatta.jpg" alt=""><div><strong>Meli Masnatta</strong><span>Instagram Reels</span></div></div>
+            <ul class="why"><li>Un inicio que promete algo</li><li>Storytelling que revela de a poco</li><li>Conclusión final reveladora</li></ul>
+            <a class="clip-link" href="https://www.instagram.com/reel/DIHOGRBJhwa/" target="_blank" rel="noopener noreferrer">Ver en redes ↗</a>
+          </article>
+        </div>
+        <div class="results-bar" aria-hidden="true"><i></i></div>
+      </div>
+    </section>
 
-        // --- Lógica del Carrusel de Videos con Información y Miniaturas ---
-        const videoData = [
-            { videoSrc: 'videos/video-1.mp4', speakerImg: 'images/pato-jebsen.jpg', views: '+1.3 M views', description: '🌟 Inicia prometiendo una historia impactante<br>😮 La música acompaña una historia interesante y "relatable"<br>💬 La reflexión final genera debate', socialLink: 'https://www.tiktok.com/@patriciajebsen/video/7483923666703600902?lang=es-419' },
-            { videoSrc: 'videos/video-2.mp4', speakerImg: 'images/santi-bilinkis.jpg', views: '+8.4 M views', description: '😰 Inicia atacando un miedo común y una duda muy difundida.<br>⭐ Apalancamiento en la figura de alguien conocido al inicio.<br>⚠️ Advertencias y datos impactantes en el desarrollo.', socialLink: 'https://www.instagram.com/reel/C2-G796OGIX' },
-            { videoSrc: 'videos/video-3.mp4', speakerImg: 'images/ale-melamed.jpg', views: '+400 K views', description: '🗣️ Afirmación sobre un tema polémico al inicio<br>🤔 Explicación y reflexión generan debate<br>🎶 Música que enfatiza la gravedad del debate', socialLink: 'https://www.instagram.com/reel/DGOU8l2qr-l/' },
-            { videoSrc: 'videos/video-4.mp4', speakerImg: 'images/meli-masnatta.jpg', views: '+15 K views', description: '👀 Inicio que promete algo interesante<br>🫣 Storytelling que revela info. de a poco<br>💡 Conclusión final reveladora', socialLink: 'https://www.instagram.com/reel/DIHOGRBJhwa/' },
-            { videoSrc: 'videos/video-5.mp4', speakerImg: 'images/fede-ast.jpg', views: '+10 K views', description: '🖼️ El marco resuelve problemas de calidad<br>😡 Inicio con un tema que genera enojo<br>💬 Storytelling previo a la solución', socialLink: 'https://www.instagram.com/reel/DH3gnclKiU9/' },
-            { videoSrc: 'videos/video-6.mp4', speakerImg: 'images/tomi-balmaceda.jpg', views: '+80 K views', description: '🎶 La música propone ambiente reflexivo<br>🫨 Inicio con movimiento y juego de zoom<br>🗣️ Crítica social genera debate', socialLink: 'https://www.instagram.com/reel/DBJOmFoOFbz/' },
-            { videoSrc: 'videos/video-7.mp4', speakerImg: 'images/claudio-zuchoviki.jpg', views: '+1.8 M views', description: '😌 Ejemplo claro e ideal para su público<br>🧩 Estructura armada para enganchar y retener<br>🖱️ Edición acorde al mensaje y estética prolija', socialLink: 'https://www.instagram.com/p/DEjRFtfMH9_/' }
-        ];
+    <!-- ============ VOCES ============ -->
+    <!-- Clientes activos según Centralizaple3 -->
+    <section class="voices" id="voces">
+      <header class="section-head reveal">
+        <p class="kicker">Voces</p>
+        <h2 class="h2">Referentes que confían<br>su voz en <em class="grad-text">nosotros.</em></h2>
+      </header>
 
-        const carousel = document.querySelector('.carousel');
-        const prevButton = document.querySelector('.carousel-nav.prev');
-        const nextButton = document.querySelector('.carousel-nav.next');
-        const thumbnailsContainer = document.getElementById('carousel-thumbnails-container');
-        const totalVideos = videoData.length;
-        let currentIndex = 0;
+      <ul class="voice-list">
+        <li class="reveal"><button class="voice" type="button" data-name="Santi Bilinkis" data-img="images/clients/santi-bilinkis.jpg" data-title="Tecnólogo y emprendedor" data-link="https://www.instagram.com/s.bilinkis/" data-desc="Autor y conferencista, Santi es una de las voces más influyentes sobre el impacto de la tecnología en la sociedad. Explora cómo la innovación transforma nuestras vidas, el trabajo y el futuro de la humanidad."><span class="v-idx">01</span><img class="v-avatar" src="images/clients/santi-bilinkis.jpg" alt=""><span class="v-text"><span class="v-name">Santi Bilinkis</span><span class="v-role">Tecnólogo y emprendedor</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+        <li class="reveal"><button class="voice" type="button" data-name="Claudio Zuchovicki" data-img="images/clients/claudio-zuchovicki.jpg" data-title="Analista financiero" data-link="https://www.instagram.com/czuchovicki/" data-desc="Gerente de Desarrollo de la Bolsa de Comercio de Buenos Aires, Claudio es un destacado analista financiero que traduce la complejidad de los mercados a un lenguaje accesible para todos."><span class="v-idx">02</span><img class="v-avatar" src="images/clients/claudio-zuchovicki.jpg" alt=""><span class="v-text"><span class="v-name">Claudio Zuchovicki</span><span class="v-role">Analista financiero</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+        <li class="reveal"><button class="voice" type="button" data-name="Mateo Salvatto" data-img="images/clients/mateo-salvatto.jpg" data-title="Emprendedor tecnológico y divulgador" data-link="https://www.instagram.com/mateons/" data-desc="Campeón de robótica y fundador de Asteroid Technologies, Mateo creó Háblalo, una app que ayuda a personas con dificultades para comunicarse. Es una de las voces jóvenes más escuchadas sobre tecnología, educación y emprendimiento."><span class="v-idx">03</span><img class="v-avatar" src="images/clients/mateo-salvatto.jpg" alt=""><span class="v-text"><span class="v-name">Mateo Salvatto</span><span class="v-role">Emprendedor tecnológico y divulgador</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+        <li class="reveal"><button class="voice" type="button" data-name="Andrés Rieznik" data-img="images/clients/andres-rieznik.jpg" data-title="Físico, neurocientífico y divulgador" data-link="https://www.instagram.com/andresrieznik/" data-desc="Doctor en Física e investigador en neurociencias, Andrés es profesor en la Universidad Torcuato Di Tella y cruza ciencia, matemática y magia para explicar cómo funciona la mente. Conduce La Liga de la Ciencia, ganadora del Martín Fierro."><span class="v-idx">04</span><img class="v-avatar" src="images/clients/andres-rieznik.jpg" alt=""><span class="v-text"><span class="v-name">Andrés Rieznik</span><span class="v-role">Físico, neurocientífico y divulgador</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+        <li class="reveal"><button class="voice" type="button" data-name="Fabricio Ballarini" data-img="images/clients/fabricio-ballarini.jpg" data-title="Neurocientífico y divulgador" data-link="https://www.instagram.com/fabballarini/" data-desc="Biólogo e investigador del CONICET, Fabricio estudia cómo funciona la memoria y es autor de 'REC. Por qué recordamos lo que recordamos y olvidamos lo que olvidamos'. Es una voz habitual en radio y televisión, donde acerca la neurociencia a todo el mundo."><span class="v-idx">05</span><img class="v-avatar" src="images/clients/fabricio-ballarini.jpg" alt=""><span class="v-text"><span class="v-name">Fabricio Ballarini</span><span class="v-role">Neurocientífico y divulgador</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+        <li class="reveal"><button class="voice" type="button" data-name="Fredi Vivas" data-img="images/clients/fredi-vivas.jpg" data-title="Especialista en inteligencia artificial" data-link="https://www.instagram.com/fredi_vivas/" data-desc="Ingeniero en sistemas y CEO de RockingData, Fredi es autor de tres libros sobre inteligencia artificial, entre ellos '¿Cómo piensan las máquinas?' y 'Generación IA'. Enseña en la Universidad de San Andrés y explica la IA en un lenguaje que entiende todo el mundo."><span class="v-idx">06</span><img class="v-avatar" src="images/clients/fredi-vivas.jpg" alt=""><span class="v-text"><span class="v-name">Fredi Vivas</span><span class="v-role">Especialista en inteligencia artificial</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+        <li class="reveal"><button class="voice" type="button" data-name="Joan Cwaik" data-img="images/clients/joan-cwaik.jpg" data-title="Divulgador tecnológico y autor" data-link="https://www.instagram.com/joancwaik/" data-desc="Especialista en tecnologías emergentes y autor de 'El Dilema Humano'. Joan es un referente en la divulgación sobre cómo la inteligencia artificial, la Web3 y la innovación digital están redefiniendo nuestro mundo."><span class="v-idx">07</span><img class="v-avatar" src="images/clients/joan-cwaik.jpg" alt=""><span class="v-text"><span class="v-name">Joan Cwaik</span><span class="v-role">Divulgador tecnológico y autor</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+        <li class="reveal"><button class="voice" type="button" data-name="Jonatan Loidi" data-img="images/clients/jonatan-loidi.jpg" data-title="Speaker en liderazgo y experiencia del cliente" data-link="https://www.instagram.com/jonatanloidi/" data-desc="Fundador y CEO de GrupoSet, Jonatan dio más de 700 conferencias en 20 países y es autor de nueve libros. Referente en liderazgo, ventas y experiencia del cliente, fue cuatro veces speaker TEDx."><span class="v-idx">08</span><img class="v-avatar" src="images/clients/jonatan-loidi.jpg" alt=""><span class="v-text"><span class="v-name">Jonatan Loidi</span><span class="v-role">Speaker en liderazgo y experiencia del cliente</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+        <li class="reveal"><button class="voice" type="button" data-name="Ale Melamed" data-img="images/clients/ale-melamed.jpg" data-title="Futuro del trabajo" data-link="https://www.instagram.com/melamedaleok/" data-desc="Autor de best-sellers y conferencista internacional, Ale es un experto en el futuro del trabajo y el desarrollo del talento. Ayuda a organizaciones y personas a navegar la transformación digital."><span class="v-idx">09</span><img class="v-avatar" src="images/clients/ale-melamed.jpg" alt=""><span class="v-text"><span class="v-name">Ale Melamed</span><span class="v-role">Futuro del trabajo</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+        <li class="reveal"><button class="voice" type="button" data-name="Pato Jebsen" data-img="images/clients/pato-jebsen.jpg" data-title="E-commerce y mundo laboral" data-link="https://www.instagram.com/patriciajebsen/" data-desc="Especialista en e-commerce y transformación digital, Pato ayuda a empresas a potenciar sus ventas online. Es también una aguda observadora del mundo laboral y las nuevas dinámicas de trabajo."><span class="v-idx">10</span><img class="v-avatar" src="images/clients/pato-jebsen.jpg" alt=""><span class="v-text"><span class="v-name">Pato Jebsen</span><span class="v-role">E-commerce y mundo laboral</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+        <li class="reveal"><button class="voice" type="button" data-name="Tomi Balmaceda" data-img="images/clients/tomi-balmaceda.jpg" data-title="Filósofo y periodista" data-link="https://www.instagram.com/capitanintriga/" data-desc="Doctor en Filosofía y periodista, Tomi es un referente en la cultura pop y digital. Analiza con agudeza las tendencias, la tecnología y cómo moldean nuestra identidad y comunicación."><span class="v-idx">11</span><img class="v-avatar" src="images/clients/tomi-balmaceda.jpg" alt=""><span class="v-text"><span class="v-name">Tomi Balmaceda</span><span class="v-role">Filósofo y periodista</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+        <li class="reveal"><button class="voice" type="button" data-name="Meli Masnatta" data-img="images/clients/meli-masnatta.jpg" data-title="Educación, IA e inclusión" data-link="https://www.instagram.com/melinamasnatta/" data-desc="Cofundadora de 'Chicas en Tecnología', Meli es una emprendedora social premiada que trabaja para cerrar la brecha de género en el ecosistema tecnológico."><span class="v-idx">12</span><img class="v-avatar" src="images/clients/meli-masnatta.jpg" alt=""><span class="v-text"><span class="v-name">Meli Masnatta</span><span class="v-role">Educación, IA e inclusión</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+        <li class="reveal"><button class="voice" type="button" data-name="Carlos Sosa" data-img="images/clients/carlos-sosa.jpg" data-title="Referente en liderazgo" data-link="https://www.instagram.com/carlossosa.liderazgo/" data-desc="Creador de Funcionalmente y autor de 'Liderazgo 360°', Carlos lleva más de 20 años acompañando a líderes del mundo corporativo y deportivo. Es especialista en liderazgo y equipos de alto rendimiento."><span class="v-idx">13</span><img class="v-avatar" src="images/clients/carlos-sosa.jpg" alt=""><span class="v-text"><span class="v-name">Carlos Sosa</span><span class="v-role">Referente en liderazgo</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+        <li class="reveal"><button class="voice" type="button" data-name="Diego Urfeig" data-img="images/clients/diego-urfeig.jpg" data-title="E-commerce, datos e IA" data-link="https://www.instagram.com/diegourfeig/" data-desc="Economista y científico de datos, Diego dirigió durante más de ocho años la Cámara Argentina de Comercio Electrónico, donde impulsó Hot Sale y Cyber Monday. Hoy lidera la transformación con IA en Ukelele."><span class="v-idx">14</span><img class="v-avatar" src="images/clients/diego-urfeig.jpg" alt=""><span class="v-text"><span class="v-name">Diego Urfeig</span><span class="v-role">E-commerce, datos e IA</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+        <li class="reveal"><button class="voice" type="button" data-name="Gaita González" data-img="images/clients/gaita-gonzalez.jpg" data-title="Speaker y consultor en estrategia" data-link="https://www.instagram.com/juliangaitagonzalez/" data-desc="Director en GrupoSet y consultor en estrategia y gestión de empresas, Julián 'Gaita' González es speaker TEDx y embajador de la cultura Disney en Latinoamérica."><span class="v-idx">15</span><img class="v-avatar" src="images/clients/gaita-gonzalez.jpg" alt=""><span class="v-text"><span class="v-name">Gaita González</span><span class="v-role">Speaker y consultor en estrategia</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+        <li class="reveal"><button class="voice" type="button" data-name="Sebastián Koroch" data-img="images/clients/sebastian-koroch.jpg" data-title="Especialista en marketing y ventas" data-link="https://x.com/SebastianKoroch" data-desc="Licenciado en Comercialización y magíster en Administración, Sebastián es director de programas ejecutivos y profesor de posgrado en la UCA, donde fue elegido mejor profesor de posgrado. Es consultor en GrupoSet."><span class="v-idx">16</span><img class="v-avatar" src="images/clients/sebastian-koroch.jpg" alt=""><span class="v-text"><span class="v-name">Sebastián Koroch</span><span class="v-role">Especialista en marketing y ventas</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+        <li class="reveal"><button class="voice" type="button" data-name="Agustín Gimenez" data-img="images/clients/agustin-gimenez.jpg" data-title="Marketing digital y negocios" data-link="https://www.instagram.com/agimenezzz/" data-desc="Especialista en marketing digital y redes sociales, Agustín trabajó con grandes marcas desde Meta y es cofundador de Bridge To Asia. Es keynote speaker sobre marcas, tecnología y negocios."><span class="v-idx">17</span><img class="v-avatar" src="images/clients/agustin-gimenez.jpg" alt=""><span class="v-text"><span class="v-name">Agustín Gimenez</span><span class="v-role">Marketing digital y negocios</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+        <li class="reveal"><button class="voice" type="button" data-name="Jerónimo Pino" data-img="images/clients/jeronimo-pino.jpg" data-title="Conferencias y experiencias" data-link="https://www.linkedin.com/in/jer%C3%B3nimo-pino-05746a14b/" data-desc="Cofundador y director de Cacique Group, Jerónimo conecta empresas con speakers que inspiran. Creó el Summit IA Human Future, uno de los encuentros sobre inteligencia artificial más importantes de la región."><span class="v-idx">18</span><img class="v-avatar" src="images/clients/jeronimo-pino.jpg" alt=""><span class="v-text"><span class="v-name">Jerónimo Pino</span><span class="v-role">Conferencias y experiencias</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+        <li class="reveal"><button class="voice" type="button" data-name="Evenpro" data-img="images/clients/evenpro-logo.png" data-logo data-title="Conferencias y contenidos para eventos" data-link="https://www.instagram.com/evenproconferencias/" data-desc="Evenpro conecta a empresas con speakers de primer nivel y desarrolla contenidos para eventos corporativos: conferencias, moderadores y producciones sobre liderazgo, innovación, tecnología y más."><span class="v-idx">19</span><img class="v-avatar v-logo" src="images/clients/evenpro-iso.png" alt=""><span class="v-text"><span class="v-name">Evenpro</span><span class="v-role">Conferencias y contenidos para eventos</span></span><span class="v-arrow" aria-hidden="true">↗</span></button></li>
+      </ul>
 
-        const infoBox = document.getElementById('trabajo-info-box');
-        const viewsTitle = document.getElementById('video-views-title');
-        const description = document.getElementById('video-description');
-        const socialLink = document.getElementById('video-social-link');
+      <div class="cursor-img" aria-hidden="true"><img src="" alt=""></div>
 
-        if (carousel) {
-            videoData.forEach((data, i) => {
-                const videoContainer = document.createElement('div');
-                videoContainer.classList.add('carousel-video');
-                videoContainer.style.transform = `rotateY(${360 / totalVideos * i}deg) translateZ(280px)`;
-                videoContainer.innerHTML = `<video src="${data.videoSrc}" playsinline loop></video><div class="video-overlay"><img src="images/play-icon.svg" class="play-icon" alt="Play"><img src="images/pause-icon.svg" class="pause-icon" alt="Pause"></div>`;
-                carousel.appendChild(videoContainer);
+      <dialog class="voice-dialog" id="voice-dialog" aria-labelledby="vd-name">
+        <button class="vd-close" type="button" aria-label="Cerrar">✕</button>
+        <div class="vd-media"><img class="vd-img" src="" alt=""></div>
+        <div>
+          <h3 id="vd-name" class="vd-name"></h3>
+          <p class="vd-title"></p>
+          <p class="vd-desc"></p>
+          <a class="btn btn-ghost vd-link" href="#" target="_blank" rel="noopener noreferrer">Ver en Instagram ↗</a>
+        </div>
+      </dialog>
+    </section>
 
-                const thumbnail = document.createElement('button');
-                thumbnail.classList.add('thumbnail-item');
-                thumbnail.dataset.index = i;
-                thumbnail.innerHTML = `<img src="${data.speakerImg}" alt="${data.speakerName}">`;
-                thumbnailsContainer.appendChild(thumbnail);
-            });
-            
-            const allCarouselVideos = document.querySelectorAll('.carousel-video video');
-            const allThumbnails = document.querySelectorAll('.thumbnail-item');
-            
-            allCarouselVideos.forEach(video => {
-                video.addEventListener('play', () => video.parentElement.classList.add('is-playing'));
-                video.addEventListener('pause', () => video.parentElement.classList.remove('is-playing'));
-            });
+    <!-- ============ NOSOTROS ============ -->
+    <section class="about" id="nosotros">
+      <p class="kicker reveal">Nosotros</p>
+      <p class="about-text" data-sp="cover" data-range=".12 .52" data-words>Somos un equipo cordobés de editores y analistas de video con un solo objetivo: que las ideas valiosas lleguen a millones de personas. Hace más de tres años que hackeamos el algoritmo y le damos forma al contenido corto que ves todos los días.</p>
 
-            function updateInfoPanel(index) {
-                const data = videoData[index];
-                infoBox.classList.add('fade-out');
-                setTimeout(() => {
-                    viewsTitle.textContent = data.views;
-                    description.innerHTML = data.description;
-                    if (data.socialLink) {
-                        socialLink.href = data.socialLink;
-                        socialLink.style.display = 'inline-flex';
-                    } else {
-                        socialLink.style.display = 'none';
-                    }
-                    infoBox.classList.remove('fade-out');
-                }, 200);
-            }
+      <div class="about-grid">
+        <figure class="about-photo" data-sp="cover" data-range="0 .5">
+          <img src="images/equipo-zaple.jpg" alt="El equipo de Zaple trabajando" loading="lazy" width="1400" height="1867">
+        </figure>
+        <ul class="values">
+          <li class="value reveal" style="--d:0"><span class="value-ico">✦</span><h3>Excelencia</h3><p>Cada frame importa.</p></li>
+          <li class="value reveal" style="--d:1"><span class="value-ico">◎</span><h3>Análisis</h3><p>Entendemos qué hace que un video funcione.</p></li>
+          <li class="value reveal" style="--d:2"><span class="value-ico">▣</span><h3>Prolijidad</h3><p>Detalles que se notan sin que se vean.</p></li>
+          <li class="value reveal" style="--d:3"><span class="value-ico">✺</span><h3>Creatividad</h3><p>Destacar entre tanto ruido.</p></li>
+          <li class="value value-wide reveal" style="--d:4"><span class="value-ico">☺</span><h3>Buena onda</h3><p>Trabajar con nosotros es simple y se disfruta. Somos parte de tu equipo, no un proveedor más.</p></li>
+        </ul>
+      </div>
+    </section>
 
-            function updateCarousel(isInitialLoad = false) {
-                const activeIndex = (currentIndex % totalVideos + totalVideos) % totalVideos;
-                const rotation = -currentIndex * (360 / totalVideos);
-                carousel.style.transform = `rotateY(${rotation}deg)`;
-                
-                updateInfoPanel(activeIndex);
-                
-                allThumbnails.forEach((thumb, index) => {
-                    thumb.classList.toggle('active', index === activeIndex);
-                });
+    <!-- ============ CONTACTO ============ -->
+    <section class="cta" id="contacto">
+      <div class="aurora aurora-cta" aria-hidden="true"><span></span><span></span></div>
+      <p class="kicker reveal">Contacto</p>
+      <h2 class="cta-title reveal">¿Tenés algo para decir?<br><em class="grad-text">Hagámoslo viral.</em></h2>
+      <p class="cta-sub reveal">Speakers, consultores y referentes: escribinos y te contamos cómo podemos potenciar tu voz.</p>
+      <div class="cta-actions reveal">
+        <a class="btn btn-primary btn-xl magnetic" href="mailto:info@zaple-tech.com">info@zaple-tech.com</a>
+        <a class="btn btn-ghost btn-xl" href="https://www.linkedin.com/company/zapletech/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      </div>
+    </section>
+  </main>
 
-                allCarouselVideos.forEach((video, index) => {
-                    video.parentElement.classList.toggle('active', index === activeIndex);
-                    if (index === activeIndex) {
-                        if (!isInitialLoad) {
-                            video.play();
-                        }
-                    } else {
-                        video.pause();
-                    }
-                    video.parentElement.querySelector('.video-overlay').onclick = (e) => {
-                        if (index === activeIndex) {
-                            e.stopPropagation();
-                            if (video.paused) { video.play(); } 
-                            else { video.pause(); }
-                        }
-                    };
-                });
-            }
-            
-            allThumbnails.forEach(thumb => {
-                thumb.addEventListener('click', () => {
-                    currentIndex = parseInt(thumb.dataset.index);
-                    updateCarousel();
-                });
-            });
+  <footer class="footer" data-sp="entry">
+    <div class="footer-row">
+      <span>© 2026 Zaple · Córdoba, Argentina</span>
+      <span class="footer-links">
+        <a href="https://www.instagram.com/zapletech/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.linkedin.com/company/zapletech/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:info@zaple-tech.com">Email</a>
+      </span>
+    </div>
+    <div class="wordmark" aria-hidden="true">zaple</div>
+  </footer>
 
-            nextButton.addEventListener('click', () => { currentIndex++; updateCarousel(); });
-            prevButton.addEventListener('click', () => { currentIndex--; updateCarousel(); });
-            updateCarousel(true);
-        }
-
-        // --- Lógica de Formularios Mejorada ---
-        document.querySelectorAll('.form-wrapper').forEach(formWrapper => {
-            const formContainer = formWrapper.querySelector('.form-container');
-            const loadingFeedback = formWrapper.querySelector('.form-feedback.loading');
-            const successFeedback = formWrapper.querySelector('.form-feedback.success');
-            formWrapper.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const formData = new FormData(formWrapper);
-                const action = formWrapper.getAttribute('action');
-                
-                formContainer.classList.add('hidden');
-                loadingFeedback.classList.remove('hidden');
-
-                fetch(action, {
-                    method: 'POST', body: formData, headers: { 'Accept': 'application/json' }
-                }).then(response => {
-                    loadingFeedback.classList.add('hidden');
-                    if (response.ok) {
-                        successFeedback.classList.remove('hidden');
-                        formWrapper.reset(); 
-                        setTimeout(() => {
-                            successFeedback.classList.add('hidden');
-                            formContainer.classList.remove('hidden');
-                        }, 3000);
-                    } else {
-                        alert("Hubo un error al enviar el formulario.");
-                        formContainer.classList.remove('hidden');
-                    }
-                }).catch(() => {
-                    alert("Hubo un error de red.");
-                    loadingFeedback.classList.add('hidden');
-                    formContainer.classList.remove('hidden');
-                });
-            });
-        });
-    });
-    </script>
+  <script src="main.js" defer></script>
 </body>
 </html>
