@@ -98,14 +98,75 @@
   }, { threshold: .35 });
   document.querySelectorAll('.clip video, .frame video').forEach(v => { v.removeAttribute('autoplay'); videoObserver.observe(v); });
 
-  // --- Sonido del hero ---
+  // --- Sonido: suena sólo el video más visible y pasa al siguiente al scrollear.
+  // Tocar un video lo silencia (y tocarlo de nuevo lo vuelve a activar).
+  // Si el navegador bloquea el sonido sin interacción, arranca con el primer clic o tecla.
   const heroVideo = document.getElementById('hero-video');
   const soundBtn = document.getElementById('sound-btn');
-  soundBtn.addEventListener('click', () => {
-    heroVideo.muted = !heroVideo.muted;
-    soundBtn.setAttribute('aria-pressed', String(!heroVideo.muted));
-    soundBtn.querySelector('.sound-label').textContent = heroVideo.muted ? 'Activar sonido' : 'Silenciar';
-  });
+  const players = [...document.querySelectorAll('.phone, .frame, .clip-media')]
+    .map(box => ({ box, video: box.querySelector('video') }));
+  let soundOn = true, audible = null, waitingGesture = false;
+
+  function syncSoundBtn() {
+    const on = !heroVideo.muted;
+    soundBtn.setAttribute('aria-pressed', String(on));
+    soundBtn.querySelector('.sound-label').textContent = on ? 'Silenciar' : 'Activar sonido';
+  }
+  function mostVisible() {
+    let best = null, bestScore = 0;
+    for (const { box, video } of players) {
+      const r = box.getBoundingClientRect();
+      const w = Math.max(0, Math.min(r.right, innerWidth) - Math.max(r.left, 0));
+      const h = Math.max(0, Math.min(r.bottom, innerHeight) - Math.max(r.top, 0));
+      const visible = w * h / (r.width * r.height || 1);
+      if (visible < .6) continue;
+      // Si hay varios enteros en pantalla, gana el más cercano al centro
+      const score = visible - Math.abs(r.left + r.width / 2 - innerWidth / 2) / innerWidth;
+      if (score > bestScore) { best = video; bestScore = score; }
+    }
+    return best;
+  }
+  function setAudible(video) {
+    if (audible) audible.muted = true;
+    audible = video;
+    if (video) {
+      video.muted = false;
+      video.play().catch(() => {
+        video.muted = true; video.play().catch(() => {});
+        audible = null; waitingGesture = true; syncSoundBtn();
+      });
+    }
+    syncSoundBtn();
+  }
+  function updateSound() {
+    if (waitingGesture) return;
+    const next = soundOn ? mostVisible() : null;
+    if (next !== audible) setAudible(next);
+  }
+  let soundTicking = false;
+  addEventListener('scroll', () => {
+    if (!soundTicking) { soundTicking = true; requestAnimationFrame(() => { soundTicking = false; updateSound(); }); }
+  }, { passive: true });
+  addEventListener('resize', updateSound);
+  addEventListener('load', updateSound);
+  updateSound();
+
+  function onGesture(e) {
+    if (!waitingGesture || e.target.closest('.phone, .frame, .clip-media')) return; // el toque sobre un video lo resuelve toggleSound
+    waitingGesture = false; audible = null; updateSound();
+  }
+  addEventListener('click', onGesture, true);
+  addEventListener('keydown', onGesture, true);
+
+  function toggleSound(video) {
+    waitingGesture = false;
+    soundOn = video.muted;
+    setAudible(soundOn ? video : null);
+  }
+  players.forEach(({ box, video }) => box.addEventListener('click', e => {
+    if (!e.target.closest('button, a')) toggleSound(video);
+  }));
+  soundBtn.addEventListener('click', () => toggleSound(heroVideo));
 
   // --- Nav: se esconde al bajar, vuelve al subir; link activo ---
   const nav = document.getElementById('nav');
